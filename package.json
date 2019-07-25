@@ -1,0 +1,39 @@
+{
+  "name": "supermercado-en-linea",
+  "version": "1.0.0",
+  "description": "Proyecto de supermercado en linea",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supermercado-en-linea/Supermercado-en-linea.git"
+  },
+  "author": "Maynor Peña, Jackeline Varela, Eduardo Calix, Christopher fiallos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supermercado-en-linea/Supermercado-en-linea/issues"
+  },
+  "homepage": "https://github.com/supermercado-en-linea/Supermercado-en-linea#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ckeditor": "^4.12.1",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.0.1",
+    "html2pug": "^4.0.0",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.4",
+    "sequelize": "^5.9.2",
+    "shortid": "^2.2.14",
+    "slug": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
