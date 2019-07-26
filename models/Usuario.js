@@ -1,6 +1,6 @@
 // Importar referencias
 const Sequelize = require('sequelize');
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcrypt');
 const db = require('../config/db');
 
 // Definicion del model Usuario
