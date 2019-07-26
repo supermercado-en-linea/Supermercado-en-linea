@@ -10,16 +10,22 @@ const Usuario = db.define('Usuario', {
         primaryKey : true,
         autoIncrement : true
     },
-    Nombre : {
+    Usuario : {
         type : Sequelize.STRING(100),
         allowNull : false,
         unique : {
-            args : true
+            args : true,
+            msg: 'Este nombre de usuario ya existe'
         }
     },
     Password : {
         type : Sequelize.STRING(50),
-        allowNull : false
+        allowNull : false,
+        validate: {
+            notEmpty: {
+                msg: 'Ingresa una contraseña porfavor'
+            }
+        }
     }
 },
 {
