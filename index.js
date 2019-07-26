@@ -14,6 +14,10 @@ const session = require("express-session")
 // Crear la conexión con la Base de Datos
 const db = require('./config/db');
 
+// Importar modelos
+require('./models/Usuario');
+require('./models/Cliente');
+
 // Realizar la conexión
 // Sequelize se conecta mediante promises
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise
