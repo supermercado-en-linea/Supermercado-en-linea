@@ -12,11 +12,7 @@ exports.inventariosHome = async (req, res) => {
     res.render('index');
 };
 
-exports.wysiwyg = function(req, res){
-    res.render('wysiwyg');
-}
-
-exports.ariculosHome2 = async(req, res) =>{
+exports.inventarioHome2 = async(req, res) =>{
     const inventariosPromise = Inventario.findAll();
 
     const [inventarios] = await Promise.all([inventariosPromise]).then();

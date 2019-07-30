@@ -10,7 +10,7 @@ const { body } = require('express-validator');
 
 // TODO: Falta implementar el controlador
 const inventarioController = require('../controllers/inventarioController')
-const userController = require('../controllers/userController')
+//const userController = require('../controllers/userController')
 
 
 // importar el modelo de usuario
@@ -20,7 +20,7 @@ const userController = require('../controllers/userController')
 
 
 module.exports = function () {
-
+    
     // Rutas de inventarios
     router.get('/', inventariosController.inventariosHome);
     router.get('/ver_inventarios', inventariosController.ariculosHome2)
