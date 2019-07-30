@@ -1,7 +1,7 @@
 // Importar los módulos de express
 const express = require('express');
 // Importar las rutas disponibles
-const routes = require('./routes');
+const userRoutes = require("./routes/user");
 // Importar los módulos para direcciones (path)
 const path = require('path');
 // Importar los módulos para utilizar body parser
@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Añadir la carpeta (ruta) que contiene las View (vistas)
 app.set('views', path.join(__dirname, './views'));
 
-app.use('/', routes());
+app.use('/user', userRoutes());
 
 // Inicializar el servidor de express en un puerto
 app.listen(9999);
