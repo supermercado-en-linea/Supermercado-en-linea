@@ -2,7 +2,7 @@
 const Sequilize = require('sequelize');
 
 // Establecer los paremetros de la base de datos
-const db = new Sequilize('SuperEnLinea', 'NegociosWeb2019', '12345', {
+const db = new Sequilize('SuperEnLinea', 'root', '', {
 
     host: 'localhost',
     dialect: 'mysql',

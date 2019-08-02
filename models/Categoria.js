@@ -8,8 +8,8 @@ const slug = require('slug');
 const shortid = require('shortid');
 
 // Definición del modelo (Model)
-const Inventario = db.define('inventario', {
-    idInventario : {
+const Categoria = db.define('categoriainventario', {
+    idCategoria : {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -19,36 +19,28 @@ const Inventario = db.define('inventario', {
         type: Sequelize.STRING(30)
     },
 
-    descripcion : {
-        type: Sequelize.STRING(100)
+    idtipo: {
+        type: Sequelize.INTEGER
     },
-    costoUnitario :{
-        type: Sequelize.DECIMAL(5,2)
-    },
-    precioVenta :{
-        type: Sequelize.DECIMAL(5,2)
-    },
-    stock :{
-        type: Sequelize.DECIMAL(5,2)
-    },
+   
     url : Sequelize.STRING
 }, {
     hooks : {
-        beforeCreate(inventario) {
+        beforeCreate(categoria) {
             console.log('Antes de insertar en la base de datos');
-            const url = slug(inventario.nombre).toLowerCase();
+            const url = slug(categoria.nombre).toLowerCase();
 
-            inventario.url = `${url}-${shortid.generate()}`;
+            categoria.url = `${url}-${shortid.generate()}`;
         },
 
-        beforeUpdate(inventario) {
+        beforeUpdate(categoria) {
             console.log('Antes de actualizar en la base de datos');
-            const url = slug(inventario.nombre).toLowerCase();
+            const url = slug(categoria.nombre).toLowerCase();
 
-            inventario.url = `${url}-${shortid.generate()}`;
+            categoria.url = `${url}-${shortid.generate()}`;
         }
     }
 });
 
 // Importar el modelo para poder utilizarlo
-module.exports = Inventario;
+module.exports = Categoria;

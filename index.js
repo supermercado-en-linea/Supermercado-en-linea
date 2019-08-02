@@ -1,7 +1,7 @@
 // Importar los módulos de express
 const express = require('express');
 // Importar las rutas disponibles
-const routes = require('./routes');
+//const routes = require('./routes');
 // Importar los módulos para direcciones (path)
 const path = require('path');
 // Importar los módulos para utilizar body parser
@@ -13,6 +13,7 @@ const session = require("express-session")
 
 // Crear la conexión con la Base de Datos
 const db = require('./config/db');
+
 
 // Realizar la conexión
 // Sequelize se conecta mediante promises
@@ -36,7 +37,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Añadir la carpeta (ruta) que contiene las View (vistas)
 app.set('views', path.join(__dirname, './views'));
 
-app.use('/', routes());
+app.use(require('./routes/index'));
+//app.use('/', routes());
+let inventarioRoutes = require('./routes/inventario');
+app.use('/inventario', inventarioRoutes());
+
 
 // Inicializar el servidor de express en un puerto
 app.listen(9999);
