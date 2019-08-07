@@ -30,6 +30,8 @@ const Inventario = db.define('inventario', {
     },
     stock :{
         type: Sequelize.DECIMAL(5,2)
+    },foto: {
+        type: Sequelize.STRING
     },
     url : Sequelize.STRING
 }, {
@@ -49,6 +51,8 @@ const Inventario = db.define('inventario', {
         }
     }
 });
+
+
 
 // Importar el modelo para poder utilizarlo
 module.exports = Inventario;

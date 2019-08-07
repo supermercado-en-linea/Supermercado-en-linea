@@ -12,6 +12,11 @@ exports.inventariosHome = async (req, res) => {
     // const inventario = await inventario.findAll(); 
     res.render('inventario/inventario');
 }; 
+exports.carrito = async (req, res) => {
+    // Obtener todos los proyectos
+    // const inventario = await inventario.findAll(); 
+    res.render('inventario/carrito');
+}; 
 exports.crearInventario = async (req, res)=>{
     const categoriaPromise = Categoria.findAll();
 
@@ -24,9 +29,7 @@ exports.inventarioHome2 = async(req, res) =>{
 
     const [inventarios] = await Promise.all([inventariosPromise]).then();
     
-    res.render('inventario/verInventario',{
-        inventarios
-    });
+    res.render('inventario/verInventario',{inventarios});
 }
 
 exports.nuevoInventario = async (req, res) => {
@@ -57,7 +60,7 @@ exports.nuevoInventario = async (req, res) => {
         });
 
         await Inventario.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion, costoUnitario: newArticle.costoUnitario, precioVenta: newArticle.precioVenta,stock:newArticle.stock});
-        res.redirect('inventario/verInventario');
+        res.redirect('verInventario');
     }
 }
 
