@@ -12,17 +12,20 @@ const passport = require('passport')
 const session = require("express-session")
 
 // Crear la conexión con la Base de Datos
-const db = require('./config/db');
+//const db = require('./config/db');
 
 // Realizar la conexión
 // Sequelize se conecta mediante promises
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise
-db.sync()
-    .then(() => console.log('Conectado al servidor de BD'))
-    .catch(error => console.log(error));
+//db.sync()
+    //.then(() => console.log('Conectado al servidor de BD'))
+    //.catch(error => console.log(error));
 
 // Crear una App de express
 const app = express();
+
+// Importar los modelos
+
 
 // Desde dónde se cargan los archivos estáticos
 app.use(express.static('public'));
