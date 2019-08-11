@@ -2,7 +2,7 @@
 //const Proyecto = require('../models/Proyecto');
 
 exports.paginaPrincipal =  async(req, res) => {
-    res.send('index');
+    res.render('index');
 };
 
 
