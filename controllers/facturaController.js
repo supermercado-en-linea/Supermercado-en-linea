@@ -17,22 +17,8 @@ exports.proyectosHome = async (req, res) => {
     });
 };
 
-exports.formularioProyecto = async (req, res) => {
-    // Obtener todos los proyectos del usuario actual
-    const usuarioId = res.locals.usuario.id;
-    const proyectos = await Proyecto.findAll({
-        where : {
-            usuarioId : usuarioId
-        }
-    });
 
-    res.render('nuevoProyecto', {
-        nombrePagina : 'Nuevo proyecto',
-        proyectos
-    });
-};
-
-exports.nuevoProyecto = async (req, res) => {
+exports.nuevaFactura = async (req, res) => {
     // Obtener todos los proyectos del usuario actual
     const usuarioId = res.locals.usuario.id;
     const proyectos = await Proyecto.findAll({
