@@ -11,6 +11,7 @@ const passport = require('passport')
 
 const session = require("express-session")
 
+const facturaRoute = require("./routes/factura")
 // Crear la conexión con la Base de Datos
 const db = require('./config/db');
 
@@ -36,7 +37,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Añadir la carpeta (ruta) que contiene las View (vistas)
 app.set('views', path.join(__dirname, './views'));
 
-app.use('/', routes());
+app.use('/factura', facturaRoute());
+
 
 // Inicializar el servidor de express en un puerto
 app.listen(9999);

@@ -16,9 +16,6 @@ const Factura = db.define('factura', {
     subTotal : {
         type: Sequelize.STRING(8000)
     },
-    descuento : {
-        type: Sequelize.STRING(8000)
-    },
     isv : {
         type: Sequelize.STRING(8000)
     },
@@ -31,21 +28,23 @@ const Factura = db.define('factura', {
     url : Sequelize.STRING
 }, {
     hooks : {
-        beforeCreate(inventario) {
+        beforeCreate(Factura) {
             console.log('Antes de insertar en la base de datos');
-            const url = slug(inventario.nombre).toLowerCase();
+            const url = slug(Factura.nombre).toLowerCase();
 
             inventario.url = `${url}-${shortid.generate()}`;
         },
 
-        beforeUpdate(inventario) {
+        beforeUpdate(Factura) {
             console.log('Antes de actualizar en la base de datos');
-            const url = slug(inventario.nombre).toLowerCase();
+            const url = slug(Factura.nombre).toLowerCase();
 
-            inventario.url = `${url}-${shortid.generate()}`;
+            Factura.url = `${url}-${shortid.generate()}`;
         }
     }
 });
 
+Factura.belogsTo(Cliente);
+
 // Importar el modelo para poder utilizarlo
-module.exports = Inventario;
+module.exports = Factura;
