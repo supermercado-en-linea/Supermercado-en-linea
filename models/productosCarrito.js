@@ -7,28 +7,28 @@ const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
 
-const Factura = require('./factura')
+const Carrito = require('./carrito')
 
-const detalleFactura = db.define('detalleFactura', {
+const ProductoCarrito = db.define('productoCarrito', {
     id : {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    cantidad : {
+    nombre : {
         type: Sequelize.STRING
     },
-    nombre :{
-        type: Sequelize.STRING
+    precio :{
+        type: Sequelize.INTEGER
     },
-    precioUnitario :{
+    cantidad :{
         type: Sequelize.INTEGER
     },
     total :{
         type: Sequelize.INTEGER
     } 
 });
-detalleFactura.belongsTo(Factura);
+detalleFactura.belongsTo(Carrito);
 
 // Exportar el modelo
-module.exports = detalleFactura;
+module.exports = ProductoCarrito;

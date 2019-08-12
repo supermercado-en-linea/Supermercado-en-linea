@@ -7,44 +7,41 @@ const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
 
-const Factura = db.define('factura', {
+const Carrito = db.define('carrito', {
     id : {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    subTotal : {
-        type: Sequelize.STRING(8000)
+    idCliente : {
+        type: Sequelize.INTEGER
     },
-    isv : {
-        type: Sequelize.STRING(8000)
+    numeroProductos : {
+        type: Sequelize.INTEGER
     },
     total : {
-        type: Sequelize.STRING(8000)
-    },
-    fecha : {
         type: Sequelize.STRING(8000)
     },
     url : Sequelize.STRING
 }, {
     hooks : {
-        beforeCreate(Factura) {
+        beforeCreate(Carrito) {
             console.log('Antes de insertar en la base de datos');
-            const url = slug(Factura.nombre).toLowerCase();
+            const url = slug(Carrito.nombre).toLowerCase();
 
             inventario.url = `${url}-${shortid.generate()}`;
         },
 
-        beforeUpdate(Factura) {
+        beforeUpdate(Carrito) {
             console.log('Antes de actualizar en la base de datos');
-            const url = slug(Factura.nombre).toLowerCase();
+            const url = slug(Carrito.nombre).toLowerCase();
 
-            Factura.url = `${url}-${shortid.generate()}`;
+            Carrito.url = `${url}-${shortid.generate()}`;
         }
     }
 });
 
-Factura.belogsTo(Cliente);
+Carrito.belogsTo(Cliente);
 
 // Importar el modelo para poder utilizarlo
-module.exports = Factura;
+module.exports = Carrito;
