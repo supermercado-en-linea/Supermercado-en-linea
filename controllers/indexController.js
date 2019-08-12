@@ -6,3 +6,6 @@ exports.paginaPrincipal =  async(req, res) => {
 };
 
 
+exports.productos =  async(req, res) => {
+    res.render('productos');
+};
