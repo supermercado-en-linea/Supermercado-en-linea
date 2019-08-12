@@ -14660,3 +14660,52 @@ section {
     background-color: rgba(0,0,0,.5);
     max-width: 100%;
 }
+
+.contenedo {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+@media (min-width: 768px) {
+    .lista-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+.contenido-producto p {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    text-align: center;
+    line-height: 1.2;
+    margin: 1rem 0;
+}
+.contenido-producto .titulo {
+    font-size: 4rem;
+}
+.contenido-producto .precio {
+    color: var(--secundario);
+    font-size: 3rem;
+}
+
+h1 {
+    color: var(--secundario);
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--fuentePrincipal);
+}
+img {
+    max-width: 100%;
+}
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}

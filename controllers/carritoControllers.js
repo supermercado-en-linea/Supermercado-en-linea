@@ -1,78 +1,56 @@
-'use strict';
-var models = require('../models/index');
-var Vino = models.vino;
-var Marca = models.marca;
+// Importar los modelos
+const factura = require('../models/factura');
+const productoCarrito = require('../models/productosCarrito');
+const Inventario = require('../models/Inventario');
+const Categoria = require('../models/Categoria');
 
-class CarritoController {
-    agregarItem(req, res) {
-        var carrito = req.session.carrito;
-        var external = req.params.external;
-        Vino.findOne({ where: { external_id: external }, include: [{ model: Marca }] }).then(function (vino) {
-            if (vino) {
-                var pos = CarritoController.verificar(carrito, external);
-                if (pos == -1) {
-                    var datos = {
-                        id: vino.id,
-                        external: external,
-                        nombre: vino.nombre,
-                        cantidad: 1,
-                        precio: vino.precio,
-                        precio_total: vino.precio,
-                        marca: vino.marca.nombre
-                    };
-                    carrito.push(datos);
-                } else {
-                    var dato = carrito[pos];
-                    dato.cantidad = dato.cantidad + 1;
-                    dato.precio_total = dato.cantidad * dato.precio;
-                    carrito[pos] = dato;
-                }
-                req.session.carrito = carrito;
-                console.log(req.session.carrito);
-                res.status(200).json(req.session.carrito);
-            }
-        });
+exports.crearCarrito = async (cliente,nombre,precio,cantidad,total) => {
+
+
+    // Validar que el input del formulario traiga un valor
+    
+    const idCliente = cliente;
+    const estado = "1";
+    const numeroProductos = 1;
+    const nombre = nombre;
+    const precio = precio;
+    const cantidad = cantidad;
+    
+    const total = total;
+    let errores = [];
+
+    // Verificar si el nombre del proyecto tiene un valor
+    if (!idCliente && !estado && !numeroProductos && !total) {
+        errores.push({'texto': 'El nombre del proyecto no puede ser vacío.'});
     }
 
-    quitarItem(req, res) {
-        var carrito = req.session.carrito;
-        var external = req.params.external;
-        var pos = CarritoController.verificar(carrito, external);
-        var dato = carrito[pos];
-        if (dato.cantidad > 1) {
-            dato.cantidad = dato.cantidad - 1;
-            dato.precio_total = dato.cantidad * dato.precio;
-            carrito[pos] = dato;
-            req.session.carrito = carrito;
-            res.status(200).json(req.session.carrito);
-        } else {
-            var aux = [];
-            for (var i = 0; i < carrito.length; i++) {
-                var items = carrito[i];
-                if (items.external != external) {
-                    aux.push(items);
-                }
-            }
-            req.session.carrito = aux;
-            res.status(200).json(req.session.carrito);
+    // Si hay errores
+   
+        if (errores.length > 0) {
+            console.log(errores)
+            res.render('inventario/verInventario');
+        }else{
+            let newArticle = new Carrito({
+                        idCliente:idCliente,
+                        estado:estado,
+                        numeroProductos:numeroProductos,
+                        total:total
+            });
+    
+            await Carrito.create({idCliente: newArticle.idCliente, estado: newArticle.estado, numeroProductos: newArticle.numeroProductos, total: newArticle.total});
+            //res.redirect('verInventario');
+            if()
         }
+};
+exports.carrito = async (req, res) => {
+    // Obtener todos los proyectos
+    // const inventario = await inventario.findAll(); 
+    res.render('inventario/carrito');
+}; 
+exports.crearCarrito = async (req, res)=>{
+    const categoriaPromise = Categoria.findAll();
 
-    }
+    const [categorias] = await Promise.all([categoriaPromise]).then();
+    res.render('inventario/crearCarrito',{categorias});
+};
 
-    mostrarCarrito(req, res) {
-        res.status(200).json(req.session.carrito);
-    }
-
-    static verificar(lista, external) {
-        var pos = -1;
-        for (var i = 0; i < lista.length; i++) {
-            if (lista[i].external == external) {
-                pos = i;
-                break;
-            }
-        }
-        return pos;
-    }
-}
-
-module.exports = CarritoController;
