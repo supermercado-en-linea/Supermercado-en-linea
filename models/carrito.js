@@ -16,6 +16,9 @@ const Carrito = db.define('carrito', {
     idCliente : {
         type: Sequelize.INTEGER
     },
+    estado : {
+        type: Sequelize.STRING
+    },
     numeroProductos : {
         type: Sequelize.INTEGER
     },
