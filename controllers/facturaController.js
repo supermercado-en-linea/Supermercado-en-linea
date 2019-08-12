@@ -4,7 +4,7 @@ const detalleFactura = require('../models/detalleFactura')
 
 exports.proyectosHome = async (req, res) => {
     // Obtener todos los proyectos del usuario actual
-    const usuarioId = res.locals.usuario.id;
+
     const proyectos = await Proyecto.findAll({
         where : {
             usuarioId : usuarioId
@@ -19,18 +19,12 @@ exports.proyectosHome = async (req, res) => {
 
 
 exports.nuevaFactura = async (req, res) => {
-    // Obtener todos los proyectos del usuario actual
-    const usuarioId = res.locals.usuario.id;
-    const proyectos = await Proyecto.findAll({
-        where : {
-            usuarioId : usuarioId
-        }
-    });
+
 
     // Validar que el input del formulario traiga un valor
     // Utilizamos asignación por destructuring
     // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment
-    const { nombre } = req.body;
+    const { nombre,  } = req.body;
     let errores = [];
 
     // Verificar si el nombre del proyecto tiene un valor
