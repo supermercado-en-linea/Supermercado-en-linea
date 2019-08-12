@@ -1,23 +1,49 @@
 doctype html
 head
+
+  // manejar el lenguaje para navegadores poco actualizados
+  <!--[if IE 8]>
+  <html lang="es" class="lt-ie9">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <html lang="es">
+  <!--<![endif]-->
+
   title Inicio
-  meta(charset='UTF-8')
+  
   meta(name='viewport' content='width=device-width, initial-scale=1')
   link(rel='icon' type='image/png' href='images/icons/favicon.png')
+
+  link(href='https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap' rel='stylesheet')
+
+
   link(rel='stylesheet' type='text/css' href='vendor/bootstrap/css/bootstrap.min.css')
+
   link(rel='stylesheet' type='text/css' href='fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+
   link(rel='stylesheet' type='text/css' href='fonts/themify/themify-icons.css')
+
   link(rel='stylesheet' type='text/css' href='fonts/Linearicons-Free-v1.0.0/icon-font.min.css')
+
   link(rel='stylesheet' type='text/css' href='fonts/elegant-font/html-css/style.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/animate/animate.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/css-hamburgers/hamburgers.min.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/animsition/css/animsition.min.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/select2/select2.min.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/daterangepicker/daterangepicker.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/slick/slick.css')
+
   link(rel='stylesheet' type='text/css' href='vendor/lightbox2/css/lightbox.min.css')
+
   link(rel='stylesheet' type='text/css' href='css/util.css')
   link(rel='stylesheet' type='text/css' href='css/main.css')
+
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous')
 // header fixed
 .wrap_header.fixed-header2.trans-0-4
@@ -44,7 +70,8 @@ head
         li
           a(href='blog.html') Blog
         li
-          a(href='contact.html') Cont&aacute;ctanos
+          a(href='contact.html') Contáctanos
+
   // Header Icon al avanzar hacia abajo
   .header-icons
     a.header-wrapicon1.dis-block(href='#')
@@ -53,7 +80,10 @@ head
     span.linedivide1
     .header-wrapicon2
       img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
+
+      // Aquí debería ir la idea de case 
       span.header-icons-noti 0
+
       // Header CARRITO
       .header-cart.header-dropdown
         ul.header-cart-wrapitem
@@ -85,6 +115,7 @@ head
           | Total: $75.00
         .header-cart-buttons
           .header-cart-wrapbtn
+          
             // Button
             a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='cart.html')
               | Ver Carrito
@@ -93,12 +124,13 @@ head
             a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
               | Check Out
   // Fin header Icon
-// Fin header fixed
+// Fin header fixed 
+
 // top noti
 .flex-c-m.size22.bg0.s-text21.pos-relative
   | APROVECHA! 20% de descuento 
   a.s-text22.hov6.p-l-5(href='product.html')
-    | Comprar ahora
+    | Comprar
   button.flex-c-m.pos2.size23.colorwhite.eff3.trans-0-4.btn-romove-top-noti
     i.fa.fa-remove.fs-13(aria-hidden='true')
 // Header 2
@@ -119,7 +151,7 @@ header.header2
       .topbar-child2
         p Moneda
         .topbar-language.rs1-select2
-          select.selection-1(name='time')
+          select.selection-1
             option LEMP
             option USD
         // 
@@ -128,7 +160,8 @@ header.header2
         span.linedivide1
         .header-wrapicon2.m-r-13
           img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
-          span.header-icons-noti 0
+          // Parte del case
+          span.header-icons-noti 10
           // Header cart noti
           .header-cart.header-dropdown
             ul.header-cart-wrapitem
@@ -188,7 +221,7 @@ header.header2
             li
               a(href='blog.html') Blog
             li
-              a(href='contact.html') Cont&aacute;ctanos
+              a(href='contact.html') Contáctanos
       // Header Icon
       .header-icons
   // Header Mobile
@@ -282,7 +315,7 @@ header.header2
         li.item-menu-mobile
           a(href='blog.html') Blog
         li.item-menu-mobile
-          a(href='contact.html') Cont&aacute;ctanos
+          a(href='contact.html') Contáctanos
 // Slide1
 section.slide1
   .wrap-slick1
@@ -290,9 +323,9 @@ section.slide1
       .item-slick1.item1-slick1(style='background-image: url(images/master-slide-01.jpg);')
         .wrap-content-slide1.sizefull.flex-col-c-m.p-l-15.p-r-15.p-t-150.p-b-170
           h2.caption1-slide1.xl-text2.t-center.bo14.p-b-6.animated.visible-false.m-b-22(data-appear='fadeInUp')
-            | Leather Bags
+            | Nuevas ofertas
           span.caption2-slide1.m-text1.t-center.animated.visible-false.m-b-33(data-appear='fadeInDown')
-            | New Collection 2018
+            | Búscalas con nuestros filtros
           .wrap-btn-slide1.w-size1.animated.visible-false(data-appear='zoomIn')
             // Button
             a.flex-c-m.size2.bo-rad-23.s-text2.bgwhite.hov1.trans-0-4(href='product.html')
@@ -300,9 +333,9 @@ section.slide1
       .item-slick1.item2-slick1(style='background-image: url(images/master-slide-02.jpg);')
         .wrap-content-slide1.sizefull.flex-col-c-m.p-l-15.p-r-15.p-t-150.p-b-170
           h2.caption1-slide1.xl-text2.t-center.bo14.p-b-6.animated.visible-false.m-b-22(data-appear='rollIn')
-            | Leather Bags
+            | Nuevas ofertas
           span.caption2-slide1.m-text1.t-center.animated.visible-false.m-b-33(data-appear='lightSpeedIn')
-            | New Collection 2018
+            | Búscalas con nuestros filtros
           .wrap-btn-slide1.w-size1.animated.visible-false(data-appear='slideInUp')
             // Button
             a.flex-c-m.size2.bo-rad-23.s-text2.bgwhite.hov1.trans-0-4(href='product.html')
@@ -311,9 +344,9 @@ section.slide1
       .item-slick1.item3-slick1(style='background-image: url(images/master-slide-03.jpg);')
         .wrap-content-slide1.sizefull.flex-col-c-m.p-l-15.p-r-15.p-t-150.p-b-170
           h2.caption1-slide1.xl-text2.t-center.bo14.p-b-6.animated.visible-false.m-b-22(data-appear='rotateInDownLeft')
-            | Los Productos m&aacute;s frecos
+            | Productos frecos
           span.caption2-slide1.m-text1.t-center.animated.visible-false.m-b-33(data-appear='rotateInUpRight')
-            | New Collection 2018
+            | Búscalos con nuestros filtros
           .wrap-btn-slide1.w-size1.animated.visible-false(data-appear='rotateIn')
             // Button
             a.flex-c-m.size2.bo-rad-23.s-text2.bgwhite.hov1.trans-0-4(href='product.html')
@@ -325,6 +358,7 @@ section.slide1
   <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
   <i class="fs-12 fa fa-search" aria-hidden="true"></i>
   </button>
+
 // Banner
 .banner.bgwhite.p-t-40.p-b-40
   .container
@@ -353,25 +387,26 @@ section.slide1
             // Button
             a.flex-c-m.size2.m-text2.bg3.hov1.trans-0-4(href='#')
               | Bags
-// Our product
+// Sección de productos
 section.bgwhite.p-t-45.p-b-58
   .container
     .sec-title.p-b-22
       h3.m-text5.t-center
-        | Our Products
+        | Nuestros Productos
     // Tab01
     .tab01
       // Nav tabs
       ul.nav.nav-tabs(role='tablist')
         li.nav-item
-          a.nav-link.active(data-toggle='tab' href='#best-seller' role='tab') Best Seller
+          a.nav-link.active(data-toggle='tab' href='#best-seller' role='tab') Los más vendidos
+
         li.nav-item
-          a.nav-link(data-toggle='tab' href='#featured' role='tab') Featured
+          a.nav-link(data-toggle='tab' href='#featured' role='tab') Destacados
+
         li.nav-item
-          a.nav-link(data-toggle='tab' href='#sale' role='tab') Sale
-        li.nav-item
-          a.nav-link(data-toggle='tab' href='#top-rate' role='tab') Top Rate
-      // Tab panes
+          a.nav-link(data-toggle='tab' href='#sale' role='tab') Ofertas
+
+      // Tab panels
       .tab-content.p-t-35
         // -
         #best-seller.tab-pane.fade.show.active(role='tabpanel')
@@ -388,7 +423,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -406,7 +441,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -424,7 +459,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Coach slim easton black
@@ -442,7 +477,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -460,7 +495,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -478,7 +513,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -496,7 +531,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Coach slim easton black
@@ -514,7 +549,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Frayed denim shorts
@@ -537,7 +572,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Frayed denim shorts
@@ -557,7 +592,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -575,7 +610,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -593,7 +628,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -611,7 +646,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Frayed denim shorts
@@ -631,7 +666,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | AAñadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -649,7 +684,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -670,7 +705,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -688,7 +723,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -706,7 +741,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -724,7 +759,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -745,7 +780,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -763,7 +798,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -781,7 +816,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Coach slim easton black
@@ -799,7 +834,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Frayed denim shorts
@@ -819,7 +854,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Coach slim easton black
@@ -837,7 +872,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Frayed denim shorts
@@ -857,7 +892,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Herschel supply co 25l
@@ -875,7 +910,7 @@ section.bgwhite.p-t-45.p-b-58
                     .block2-btn-addcart.w-size1.trans-0-4
                       // Button
                       button.flex-c-m.size1.bg4.bo-rad-23.hov1.s-text1.trans-0-4
-                        | Add to Cart
+                        | Añadir al carrito
                 .block2-txt.p-t-20
                   a.block2-name.dis-block.s-text3.p-b-5(href='product-detail.html')
                     | Denim jacket blue
@@ -892,58 +927,7 @@ section.parallax0.parallax100(style='background-image: url(images/bg-video-01.jp
       span.btn-play.s-text4.hov5.cs-pointer.p-t-25(data-toggle='modal' data-target='#modal-video-01')
         i.fa.fa-play(aria-hidden='true')
         | &#x9;&#x9;&#x9;&#x9;&#x9;Play Video
-// Blog
-section.blog.bgwhite.p-t-94.p-b-65
-  .container
-    .sec-title.p-b-52
-      h3.m-text5.t-center
-        | Our Blog
-    .row
-      .col-sm-10.col-md-4.p-b-30.m-l-r-auto
-        // Block3
-        .block3
-          a.block3-img.dis-block.hov-img-zoom(href='blog-detail.html')
-            img(src='images/blog-01.jpg' alt='IMG-BLOG')
-          .block3-txt.p-t-14
-            h4.p-b-7
-              a.m-text11(href='blog-detail.html')
-                | Black Friday Guide: Best Sales &amp; Discount Codes
-            span.s-text6 By
-            span.s-text7 Nancy Ward
-            span.s-text6 on
-            span.s-text7 July 22, 2017
-            p.s-text8.p-t-16
-              | Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
-      .col-sm-10.col-md-4.p-b-30.m-l-r-auto
-        // Block3
-        .block3
-          a.block3-img.dis-block.hov-img-zoom(href='blog-detail.html')
-            img(src='images/blog-02.jpg' alt='IMG-BLOG')
-          .block3-txt.p-t-14
-            h4.p-b-7
-              a.m-text11(href='blog-detail.html')
-                | The White Sneakers Nearly Every Fashion Girls Own
-            span.s-text6 By
-            span.s-text7 Nancy Ward
-            span.s-text6 on
-            span.s-text7 July 18, 2017
-            p.s-text8.p-t-16
-              | Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
-      .col-sm-10.col-md-4.p-b-30.m-l-r-auto
-        // Block3
-        .block3
-          a.block3-img.dis-block.hov-img-zoom(href='blog-detail.html')
-            img(src='images/blog-03.jpg' alt='IMG-BLOG')
-          .block3-txt.p-t-14
-            h4.p-b-7
-              a.m-text11(href='blog-detail.html')
-                | New York SS 2018 Street Style: Annina Mislin
-            span.s-text6 By
-            span.s-text7 Nancy Ward
-            span.s-text6 on
-            span.s-text7 July 2, 2017
-            p.s-text8.p-t-16
-              | Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
+
 // Instagram
 section.instagram.p-t-20
   .sec-title.p-b-52.p-l-15.p-r-15

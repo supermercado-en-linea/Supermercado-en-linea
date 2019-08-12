@@ -3017,7 +3017,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 */
 .s-text1 {
 	font-family: Montserrat-Regular;
-	font-size: 15px;
+	font-size: 12px;
 	color: white;
 	text-transform: uppercase;
 }
@@ -3708,7 +3708,7 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 /*[ Background ]
 ///////////////////////////////////////////////////////////
 */
-.bg0 {background-color: #e65540;}
+.bg0 {background-color: #ffbe41;}
 .bg1 {background-color: #222222;}
 .bg3 {background-color: rgba(255,255,255,0.95);}
 .bg4 {background-color: #111111;}

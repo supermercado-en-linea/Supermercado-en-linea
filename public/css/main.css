@@ -1,44 +1,15 @@
-/*------------------------------------------------------------------
-Project:  
-Version:  
-Last change:  
-Assigned to:  Le Xuan Bach
-Primary use:  Company
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[LAYOUT]
+:root {
+ 
+  /* Colores*/
+  --avocado: #258039; 
+  --sage: #A1Be95; 
+  --yellowPepper:#ffbe41;
+  --aquaBlue: #31A9B8; 
+  --secundario: #CF3721; 
+  --ice: #f7efe2; 
+  
+}
 
-* body
-  + Header / header
-  + Page Content / .page-content .name-page
-        + Section Layouts / section .name-section
-        ...
-  + Footer / footer
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[COLOR CODES]
-
-# Text Color      :  
-# Primary Color 01:  
-# Primary Color 02:   
-# Primary Color 03:  
-
-------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[TYPOGRAPHY]
-
-Body            : 16px/1.6 '', Arial, sans-serif;
-Title           : 18px/1.6 '', Arial, sans-serif;
-Paragrap        : 18px/1.6 '', Arial, sans-serif;
-Input, textarea : 14px/1.6 '', Arial, sans-serif;
--------------------------------------------------------------------*/
-
-
-
-/*[ FONT ]
-///////////////////////////////////////////////////////////
-*/
 
 @font-face {
   font-family: Montserrat-Regular;
@@ -83,11 +54,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*[ RESTYLE TAG ]
 ///////////////////////////////////////////////////////////
 */
-* {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-}
+
 
 body, html {
 	height: 100%;
@@ -101,8 +68,8 @@ a {
   font-weight: 400;
 	font-size: 15px;
 	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
+	color: black;
+
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -115,7 +82,11 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-	color: #e65540;
+	
+}
+i:hover {
+	text-decoration: none;
+	
 }
 
 /* ------------------------------------ */
@@ -187,11 +158,7 @@ iframe {
 }
 
 
-
-
-
 /*[ LOADDING ]
-///////////////////////////////////////////////////////////
 */
 .animsition-loading-1 {
   position: absolute;
@@ -297,7 +264,7 @@ iframe {
   height: 40px;
   bottom: 40px;
   right: 40px;
-  background-color: black;
+  background-color: var(--aquaBlue);
   opacity: 0.5;
   justify-content: center;
   align-items: center;
@@ -311,7 +278,7 @@ iframe {
 
 .symbol-btn-back-to-top {
   font-size: 22px;
-  color: white;
+  color: var(--yellowPepper);
   line-height: 1em;
 }
 
@@ -356,7 +323,7 @@ iframe {
   font-size: 13px;
   font-family: Montserrat-Regular;
   line-height: 20px;
-  color: #888888;
+  color: black;
   padding-left: 0px ;
   background-color: transparent;
 }
@@ -385,8 +352,8 @@ iframe {
   width: 5px;
   height: 5px;
   background-color: transparent;
-  border-right: 1px solid #888888;
-  border-bottom: 1px solid #888888;
+  border-right: 1px solid #cf3721;
+  border-bottom: 1px solid #cf3721;
   color: white;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -537,7 +504,7 @@ iframe {
 ===========================================================*/
 .topbar {
   height: 45px;
-  background-color: #f5f5f5;
+  background-color: var(--aquaBlue);
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -566,7 +533,7 @@ iframe {
 }
 
 .topbar-social-item {
-  font-size: 18px;
+  font-size: 28px;
   color: #888888;
   padding: 10px;
 }
@@ -576,7 +543,7 @@ iframe {
 .topbar-child1 {
   font-family: Montserrat-Regular;
   font-size: 13px;
-  color: #888888;
+  color: white;
   line-height: 1.7;
 }
 
@@ -638,7 +605,7 @@ iframe {
 }
 
 .logo img {
-  max-height: 27px;
+  max-height: 100px;
 }
 
 
@@ -667,20 +634,24 @@ iframe {
 }
 
 .main_menu > li > a {
-  font-family: Montserrat-Regular;
-  font-size: 15px;
-  color: #333333;
+  font-family: Montserrat-Black;
+  font-size: 20px;
+  color: var(--avocado);
   padding: 0;
   border-bottom: 1px solid transparent;
 }
 
+.main_menu > li > a:hover{
+  color: var(--secundario);
+}
+
 li.sale-noti > a {
-  color: #e65540;
+  color: var(--secundario);
 }
 
 .main_menu > li:hover > a {
   text-decoration: none;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid var(--secundario);
 }
 
 .main_menu li {
@@ -699,7 +670,7 @@ li.sale-noti > a {
   top:0;
   left:100%;
   width: 225px;
-  background-color: #222222;
+  background-color: #f5f5f5;
   opacity: 0;
   visibility: hidden;
   padding-top: 10px;
@@ -866,11 +837,35 @@ li.sale-noti > a {
 }
 
 /* ------------------------------------ */
+#carrito{
+  font-size: 30px;
+}
+#carrito2{
+  font-size: 30px;
+}
+#carrito3{
+
+  font-size: 20px;
+  margin-right: 10px; 
+}
+
 .header-cart-item-img {
   width: 80px;
   position: relative;
   margin-right: 20px;
 }
+#user{
+  font-size: 30px;
+}
+#user2{
+  font-size: 30px;
+}
+.header-cart-item-img {
+  width: 80px;
+  position: relative;
+  margin-right: 20px;
+}
+
 
 .header-cart-item-img img {
   width: 100%;
@@ -1036,10 +1031,91 @@ li.sale-noti > a {
   transform-origin: top right;
 }
 
+/*[ Header Mobile ]
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.wrap_header_mobile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  display: none;
+}
+
+/*[ Logo mobile ]
+-----------------------------------------------------------*/
+.logo-mobile {
+  display: block;
+}
+
+.logo-mobile img {
+  max-height: 27px;
+}
+
+/*[ btn show menu ]
+-----------------------------------------------------------*/
+.btn-show-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+  margin-top: 5px;
+}
+
+
+/*[ Header icon mobile ]
+-----------------------------------------------------------*/
+.header-icons-mobile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.linedivide2 {
+  display: block;
+  height: 20px;
+  width: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.header-icons-mobile .header-cart {
+  width: 300px;
+  top: 190%;
+  right: -80px;  
+  z-index: 1100;
+  transform-origin: top right;
+}
+
 /*[ Menu mobile ]
 -----------------------------------------------------------*/
 .wrap-side-menu {
-  width: 100%;
+  margin-left: -40px;
+  width: 520px;
   background-color: white;
   display: none;
   border-top: 1px solid #ececec;
@@ -1050,6 +1126,7 @@ li.sale-noti > a {
 }
 
 .side-menu li {
+  width: 100%;
   list-style-type: none;
 }
 
@@ -1345,10 +1422,20 @@ li.sale-noti > a {
   }
 }
 
+/* Barra de búsqueda*/
+
+#buscarIndex {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 30px;
+  margin-left: 35%; 
+  border-color: var(--avocado);
+
+  width: 400px;
+}
 
 
 /*[ Slide1 ]
-///////////////////////////////////////////////////////////
+
 */
 
 /*[ Slick1 ]
@@ -2213,14 +2300,14 @@ li.sale-noti > a {
   border-radius: 0px;
   border: none;
   border-bottom: 1px solid transparent;
-  font-family: Montserrat-Regular;
+  font-family: Montserrat-Bold;
   font-size: 15px;
   color: #888888;
   line-height: 1.1;
 }
 
 .tab01 .nav-link.active {
-    color: #333333;
+    color: var(--avocado);
     border-bottom: 1px solid #6a6a6a;
 }
 
@@ -2330,6 +2417,28 @@ body {padding-right: 0px !important;}
   opacity: 1;
 }
 
+/*Para el timelapse que será el bacground de todo el index.html*/
+
+.timeLapse video {
+    
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+ 
+  position: fixed;  
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); 
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+
+  /* background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+}
 
 /*[ Input NumProduct ]
 ///////////////////////////////////////////////////////////
