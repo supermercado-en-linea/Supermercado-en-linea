@@ -10,16 +10,24 @@ const Usuario = db.define('Usuario', {
         primaryKey : true,
         autoIncrement : true
     },
-    Usuario : {
+    email : {
         type : Sequelize.STRING(100),
         allowNull : false,
+        validate : {
+            isEmail : {
+                msg : "Ingrese un correo electronico valido"
+            },
+            notEmpty : {
+                msg : "Porfavor ingrese un correo electronico valido"
+            }
+        },
         unique : {
             args : true,
             msg: 'Este nombre de usuario ya existe'
         }
     },
-    Password : {
-        type : Sequelize.STRING(50),
+    password : {
+        type : Sequelize.STRING(60),
         allowNull : false,
         validate: {
             notEmpty: {
@@ -31,9 +39,14 @@ const Usuario = db.define('Usuario', {
 {
     hooks : {
         beforeCreate(Usuario) {
-            Usuario.Password = bcrypt.hashSync(Usuario.Password, bcrypt.genSaltSync(10));
+            //Generar hash de password
+            Usuario.password = bcrypt.hashSync(Usuario.password, bcrypt.genSaltSync(10));
         }
     }
-})
+});
+
+Usuario.prototype.verificarPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+}
 
 module.exports = Usuario;
