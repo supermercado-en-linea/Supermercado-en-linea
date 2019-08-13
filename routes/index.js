@@ -1,11 +1,20 @@
-//express router
+
 const express = require('express');
 const router = express.Router();
-
-// Importar el Controller
-
-// TODO: Falta implementar el controlador
 const indexController = require('../controllers/indexController')
+
+
+
+//const pool = require('../database');
+//const pool = require('../database');
+
+router.get('/', async (req, res) => {
+    //res.send('Hola mundo');
+   
+    res.render('inventario/inventario');
+   //res.render('inventario/crearInventario');
+});
+
 module.exports = function () {
 
     router.get('/', indexController.paginaPrincipal);
@@ -15,3 +24,5 @@ module.exports = function () {
     
     return router;
 }
+
+module.exports = router;
