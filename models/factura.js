@@ -7,6 +7,8 @@ const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
 
+const Cliente = require('./Cliente')
+
 const Factura = db.define('factura', {
     id : {
         type: Sequelize.INTEGER,
@@ -44,7 +46,7 @@ const Factura = db.define('factura', {
     }
 });
 
-Factura.belogsTo(Cliente);
+Factura.belongsTo(Cliente);
 
 // Importar el modelo para poder utilizarlo
 module.exports = Factura;

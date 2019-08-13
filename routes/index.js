@@ -8,12 +8,6 @@ const indexController = require('../controllers/indexController')
 //const pool = require('../database');
 //const pool = require('../database');
 
-router.get('/', async (req, res) => {
-    //res.send('Hola mundo');
-   
-    res.render('inventario/inventario');
-   //res.render('inventario/crearInventario');
-});
 
 module.exports = function () {
 
@@ -24,5 +18,3 @@ module.exports = function () {
     
     return router;
 }
-
-module.exports = router;

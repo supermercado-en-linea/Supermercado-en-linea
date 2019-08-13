@@ -10,7 +10,7 @@ const Usuario = require('../models/Usuario');
 const Cliente = require('../models/Cliente');
 
 // Importar archivo config.js para los clientId y Secret id
-const config = require('../config');
+const config = require('./config');
 
 //Definir estrategia de autenticacion local
 passport.use(
