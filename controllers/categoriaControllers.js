@@ -20,6 +20,7 @@ exports.crearCategoria = async (req, res)=>{
 };
 
 
+
 exports.categoriaHome2 = async(req, res) =>{
     const categoriasPromise = Categoria.findAll();
 
@@ -52,7 +53,10 @@ exports.nuevaCategoria = async (req, res) => {
         });
 
         await Categoria.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion});
-        res.send('hola');
+        const categoriasPromise = Categoria.findAll();
+
+    const [categorias] = await Promise.all([categoriasPromise]).then();
+        res.render('categoria/verCategoria',{categorias});
     }
 }
 
@@ -72,29 +76,70 @@ exports.categoriaPorUrl = async (req, res) => {
 
 }
 
-exports.eliminarCategoria = async (req, res) => {
+exports.eliminarCategoria = async (req, res,next) => {
     const { id } = req.params;
-    await pool.query('DELETE FROM articulos WHERE idArticulo = ?', [id]);
-    req.flash('success', 'Articulo Eliminado Exitosamente');
-    res.redirect('/articles');
+    const categoriasPromise = await Categoria.destroy({
+        where : {
+            idCategoria : id
+        }
+    });
+
+    if(!categoriasPromise){
+        return next();
+    }
+    console.log('Articulo Eliminado Exitosamente');
+    //res.render('categoria/verCategoria');
+    const categoriasPro = Categoria.findAll();
+
+    const [categorias] = await Promise.all([categoriasPro]).then();
+    res.render('categoria/verCategoria',{categorias});
+    
 }
 exports.editarCategoria = async (req, res) => {
     const { id } = req.params;
-    const articles2 = await pool.query('SELECT * FROM articulos WHERE idArticulo = ?', [id]);
-    console.log(articles2);
-    res.render('articles/edit', {articles: articles2[0]});
+    const categoriasPromise =  Categoria.findAll({
+        where : {
+            idCategoria : id
+        }
+    });
+   const [categorias] = await Promise.all([categoriasPromise]).then();
+    res.render('categoria/editarCategoria', {categorias});
+    console.log(categorias.descripcion);
+
 }
  exports.ModificarCategoria=async(req,res)=>{
+    //const { id } = req.locals.categoria.idCategoria;
     const { id } = req.params;
-    const { titulo, articuloEscrito } = req.body;
-    const newLink = {
-        titulo, 
-        articuloEscrito
-        
-    };
-    await pool.query('UPDATE articulos set ? WHERE idArticulo = ?', [newLink, id]);
-    req.flash('success', 'Articulo Guardado Exitosamente');
-    res.redirect('/articles');
+
+    //const categorias = await Categoria.findAll({where:{idCategoria:id}});
+    const { nombre, descripcion } = req.body;
+
+
+    let errores = [];
+
+    // Verificar si el nombre del proyecto tiene un valor
+    if (!nombre && !descripcion) {
+        errores.push({'texto': 'El nombre del proyecto no puede ser vacío.'});
+    }
+
+    // Si hay errores
+    if (errores.length > 0) {
+        res.render('categoria/verCategoria');
+    } else {
+        // No existen errores
+        // Inserción en la base de datos.
+        await Categoria.update(
+            { nombre ,descripcion},
+            { where : {
+                idCategoria : id
+            }}
+        );
+
+        // Redirigir hacia la ruta principal
+        res.redirect('../../categoria/verCategoria');
+
+       
+    }
  }
 /* router.get('/', isLoggedIn,async (req, res) => {
     
