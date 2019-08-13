@@ -1,3 +1,4 @@
+
 // Importar Sequilize
 const Sequilize = require('sequelize');
 
@@ -18,10 +19,6 @@ const db = new Sequilize('SuperEnLinea', 'root', '', {
         min: 0,
         acquire: 30000,
         idle: 10000
-    }
-
-
-});
-
-
+    });
+                         
 module.exports = db;
