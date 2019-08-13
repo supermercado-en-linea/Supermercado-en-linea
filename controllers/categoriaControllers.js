@@ -3,7 +3,7 @@ const Categoria = require('../models/Categoria');
 //const Categoria = require('../models/Categoria');
 
 //importar convertidor a pug
-const html2pug = require('html2pug')
+const html2pug = require('html2pug');
 
 
 
@@ -32,14 +32,12 @@ exports.nuevaCategoria = async (req, res) => {
 
     const nombre = req.body.nombre;
     const descripcion = req.body.descripcion;
-    const costo = req.body.costo;
-    const precio = req.body.precio;
-    const cantidad = req.body.stock;
+ 
     //const Categoria = 
    
     let errores = [];
     
-    if (!nombre && !content && !costo && !precio && !cantidad  ) {
+    if (!nombre && !descripcion ) {
         errores.push({'texto': 'Se encotraron errores'});
     }
    
@@ -49,14 +47,12 @@ exports.nuevaCategoria = async (req, res) => {
     }else{
         let newArticle = new Categoria({
                     nombre:nombre,
-                    descripcion:content,
-                    costoUnitario:costo,
-                    precioVenta: precio,
-                    stock: cantidad
+                    descripcion:descripcion,
+                    
         });
 
-        await Categoria.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion, costoUnitario: newArticle.costoUnitario, precioVenta: newArticle.precioVenta,stock:newArticle.stock});
-        res.redirect('verCategoria');
+        await Categoria.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion});
+        res.send('hola');
     }
 }
 
@@ -75,3 +71,34 @@ exports.categoriaPorUrl = async (req, res) => {
     });
 
 }
+
+exports.eliminarCategoria = async (req, res) => {
+    const { id } = req.params;
+    await pool.query('DELETE FROM articulos WHERE idArticulo = ?', [id]);
+    req.flash('success', 'Articulo Eliminado Exitosamente');
+    res.redirect('/articles');
+}
+exports.editarCategoria = async (req, res) => {
+    const { id } = req.params;
+    const articles2 = await pool.query('SELECT * FROM articulos WHERE idArticulo = ?', [id]);
+    console.log(articles2);
+    res.render('articles/edit', {articles: articles2[0]});
+}
+ exports.ModificarCategoria=async(req,res)=>{
+    const { id } = req.params;
+    const { titulo, articuloEscrito } = req.body;
+    const newLink = {
+        titulo, 
+        articuloEscrito
+        
+    };
+    await pool.query('UPDATE articulos set ? WHERE idArticulo = ?', [newLink, id]);
+    req.flash('success', 'Articulo Guardado Exitosamente');
+    res.redirect('/articles');
+ }
+/* router.get('/', isLoggedIn,async (req, res) => {
+    
+    const articles = await pool.query('SELECT * FROM articulos WHERE idUsuario = ?', [req.user.id]);
+    res.render('articles/list', { articles});
+
+}); */

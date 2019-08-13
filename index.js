@@ -65,9 +65,9 @@ app.use('/', indexRoute());
 
 //app.use('/', routes());
 let inventarioRoutes = require('./routes/inventario');
-app.use('/inventario', inventarioRoutes());
+app.use('/formularios/inventario', inventarioRoutes());
 
 let categoriaRoutes = require('./routes/categoria');
-app.use('/categoria', categoriaRoutes());
+app.use('/formularios/categoria', categoriaRoutes());
 // Inicializar el servidor de express en un puerto
 app.listen(9999);

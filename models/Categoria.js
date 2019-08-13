@@ -20,7 +20,7 @@ const Categoria = db.define('categoriainventario', {
     },
 
     descripcion: {
-        type: Sequelize.INTEGER(50)
+        type: Sequelize.STRING(50)
     },
    
     url : Sequelize.STRING

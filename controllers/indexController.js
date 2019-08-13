@@ -18,3 +18,7 @@ exports.productos =  async(req, res) => {
 
 
 };
+
+exports.formulario= async(req,res)=>{
+    res.render('formularios');
+};

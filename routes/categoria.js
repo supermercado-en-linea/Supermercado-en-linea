@@ -24,8 +24,11 @@ module.exports = function () {
     // Rutas de categorias
     router.get('/', categoriasController.categoriasHome);
     router.get('/verCategoria', categoriasController.categoriaHome2);
-    router.get('/crearCategoria', categoriasController.crearInventario);
-    router.post('/crearCategoria',  categoriasController.nuevoInventario);
+    router.get('/crearCategoria', categoriasController.crearCategoria);
+    router.post('/crearCategoria',  categoriasController.nuevaCategoria);
+    router.get('/editarCategoria:id',categoriasController.editarCategoria);
+    router.post('/editarCategoria:id',categoriasController.ModificarCategoria);
+    router.post('/eliminarCategoria:id',categoriasController.eliminarCategoria);
     //router.get('/categoria/:url', categoriasController.categoriaPorUrl);
 
     return router;

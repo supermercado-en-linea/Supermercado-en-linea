@@ -15,6 +15,6 @@ module.exports = function () {
 
     router.get('/productos', indexController.productos);
     
-    
+    router.get('/formularios',indexController.formulario);
     return router;
 }

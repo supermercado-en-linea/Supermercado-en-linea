@@ -1,9 +1,8 @@
-extends ./inventario
+extends ../formularios
 
-block contenido
-  
+block contenido2  
   section
-      form.bg-light.p-5.contact-form(action='/inventario/crearInventario', method='POST')
+      form.bg-light.p-5.contact-form(action='/formularios/inventario/crearInventario', method='POST')
         .form-group
           h4 Nombre producto
           input.form-control(name="nombre", type='text', placeholder='Nombre del producto')
@@ -21,14 +20,3 @@ block contenido
               each categoria in categorias
                 option.categoriasText(href=`/categoria/${categoria.url}`) #{categoria.nombre}      
           input.btn.btn-primary.py-3.px-5(id="submit" ,type='submit', value='Aceptar')
-        
-
-    
-  
-              //- script.
-              //-   var array =[{{ce}}];
-              //-   for(var i = 0; i<= array.length-1;i++){
-              //-   var salida ='';
-              //-   salida += '<option>'+ array[i] + '</option>';
-              //-   document.getElementById('inputState').innerHTML = salida;
-              //-   }  
