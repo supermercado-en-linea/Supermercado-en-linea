@@ -24,6 +24,7 @@ exports.crearCuenta = async(req, res, next) => {
         .then(() => {
             res.redirect('/user/iniciar_sesion');
             console.log("usuario creado")
+            
         })
     } catch (error) {
         req.flash('error' + error.errors);
@@ -36,6 +37,15 @@ exports.crearCuenta = async(req, res, next) => {
         });
         console.log("No se creo el usuario");
     }
+}
+
+exports.facebookOAuth = async (res, req, next) => {
+    console.log('Estas aqui en usuariosController');
+}
+
+exports.googleOAuth = async(res, req, next) => {
+    const token = signToken(req.Usuario);
+    res.status(200).json([ token ]);
 }
 
 exports.formularioIniciarSesion = (req, res) => {

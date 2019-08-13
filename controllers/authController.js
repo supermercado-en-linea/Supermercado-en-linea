@@ -4,7 +4,9 @@ const passport = require('passport');
 const Usuario = require('../models/Usuario');
 // Importar Sequelize
 const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+// Express router
+const express = require('express');
+const router = express.Router();
 // Importar bcrypt
 const bcrypt = require('bcrypt');
 
@@ -14,6 +16,13 @@ exports.autenticarUsuario = passport.authenticate('local', {
     failureFlash : true,
     badRequestMessage : 'Debes ingresar tu correo electronico y tu contraseña.'
 });
+
+exports.autenticarUsuarioFacebook = router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/user/crear_cuenta',
+    failureRedirect: '/user/iniciar_sesion',
+    failureFlash: true,
+    badRequestMessage: 'Debes ingresar tu correo electronico y tu contraseña.'
+}));
 
 exports.cerrarSesion = (req, res) => {
     //Al cerrar sesion el usuario deberia ser redirigido al inicio de sesion

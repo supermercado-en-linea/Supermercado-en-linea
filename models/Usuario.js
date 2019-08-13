@@ -2,6 +2,7 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const db = require('../config/db');
+const Cliente = require('../models/Cliente');
 
 // Definicion del model Usuario
 const Usuario = db.define('Usuario', {
@@ -13,27 +14,31 @@ const Usuario = db.define('Usuario', {
     email : {
         type : Sequelize.STRING(100),
         allowNull : false,
-        validate : {
-            isEmail : {
-                msg : "Ingrese un correo electronico valido"
-            },
-            notEmpty : {
-                msg : "Porfavor ingrese un correo electronico valido"
-            }
-        },
+        // validate : {
+        //     isEmail : {
+        //         msg : "Ingrese un correo electronico valido"
+        //     },
+        //     notEmpty : {
+        //         msg : "Porfavor ingrese un correo electronico valido"
+        //     }
+        // },
         unique : {
             args : true,
             msg: 'Este nombre de usuario ya existe'
         }
     },
     password : {
-        type : Sequelize.STRING(60),
-        allowNull : false,
-        validate: {
-            notEmpty: {
-                msg: 'Ingresa una contraseña porfavor'
-            }
-        }
+        type : Sequelize.STRING,
+        allowNull : true
+        // validate: {
+        //     notEmpty: {
+        //         msg: 'Ingresa una contraseña porfavor'
+        //     }
+        // }
+    },
+    provider_id : {
+        type : Sequelize.STRING(100),
+        unique : true
     }
 },
 {
@@ -44,6 +49,8 @@ const Usuario = db.define('Usuario', {
         }
     }
 });
+
+// Usuario.hasOne(Cliente);
 
 Usuario.prototype.verificarPassword = function (password) {
     return bcrypt.compareSync(password, this.password);

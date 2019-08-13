@@ -27,7 +27,7 @@ const Cliente = db.define('Cliente', {
     },
     Telefono : {
         type: Sequelize.STRING(15),
-        allowNull: false,
+        allowNull: true,
         validate : {
             notEmpty: {
                 msg: 'Porfavor introduzca un correo electronico!'
@@ -36,27 +36,11 @@ const Cliente = db.define('Cliente', {
     },
     Direccion : {
         type: Sequelize.STRING(255),
-        allowNull: false,
+        allowNull: true,
         validate : {
             notEmpty: {
                 msg: 'Porfavor introduzca un correo electronico!'
             }
-        }
-    },
-    Email : {
-        type: Sequelize.STRING(15),
-        allowNull: false,
-        validate : {
-            isEmail : {
-                msg: 'El correo no es valido'
-            },
-            notEmpty : {
-                msg : 'Porfavor introduzca un correo electronico!'
-            }
-        },
-        unique : {
-            args : true,
-            msg : 'Ya existe una cuenta con este correo electronico'
         }
     }
 })

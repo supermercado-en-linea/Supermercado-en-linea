@@ -1,40 +1,92 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        meta(name="google-signin-client_id" content="630114060982-loh16abu71viflj0b8i8e6730ds9t6aq.apps.googleusercontent.com")
-        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato&display=swap")
-        link(rel="stylesheet", href="/css/normalize.css")
-        link(rel="stylesheet", href="/css/app.css")
-        script(src='https://kit.fontawesome.com/d7bc68b35c.js')
-        <div id="fb-root"></div>
-        script(async='' defer='' crossorigin='anonymous' src='https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v4.0&appId=2417550305197183&autoLogAppEvents=1')
-        script(src='https://apis.google.com/js/platform.js' async='' defer='')
-        title #{nombrePagina}
-    body.login
-        .contenedor-formulario
-            h1 Crea tu cuenta
+doctype html
+html(lang='es')
+  head
+    title Registro
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // ===============================================================================================
+    link(rel='icon', type='image/png', href='images/icons/favicon.ico')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='vendor/bootstrap/css/bootstrap.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='fonts/iconic/css/material-design-iconic-font.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='register/vendor/animate/animate.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='register/vendor/css-hamburgers/hamburgers.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='register/vendor/animsition/css/animsition.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='register/vendor/select2/select2.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='register/vendor/daterangepicker/daterangepicker.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='css/util.css')
+    link(rel='stylesheet', type='text/css', href='css/main.css')
+    // ===============================================================================================
+  body
+    .limiter
+      .container-login100(style="background-image: url('images/bg_1.jpg');")
+        .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
+          form.login100-form.validate-form(action='/user/crear_cuenta', method='POST')
+            span.login100-form-title.p-b-49
+              | Regístrate
+            .wrap-input100.validate-input.m-b-23(data-validate='Debe ingresar su correo electrónico')
+              span.label-input100 Correo
+              input.input100(type='text', name='email', placeholder='Goku@gmail.com')
+              span.focus-input100(data-symbol='')
 
-            //- Mostrando los errores de creación de cuenta
-            if locals.mensajes
-                each categoria in Object.keys(locals.mensajes)
-                    each error in mensajes[categoria]
-                        .alerta(class=`${categoria}`)
-                            p #{error}
+            //- .wrap-input100.validate-input.m-b-23(data-validate='Debe ingresar su usuario')
+            //-   span.label-input100 Usuario
+            //-   input.input100(type='text', name='username', placeholder='Goku98')
+            //-   span.focus-input100(data-symbol='')
 
-            form(action="/user/crear_cuenta" method="POST" id="formulario" class="caja caja-login")
-                .campo
-                    label(for="email") Correo electrónico
-                    input(type="email" name="email" placeholder="Correo electrónico" value=email)
-                .campo
-                    label(for="password") Contraseña
-                    input(type="password" name="password" placeholder="Contraseña" value=password)
-                .campo.enviar
-                    input(type="submit" value="Crear cuenta" class="boton")
-                .fb-login-button(data-width='210' data-size='medium' data-button-type='login_with' data-auto-logout-link='false' data-use-continue-as='false')
-                .g-signin2(data-onsuccess='onSignIn')
-                a(href='#' onclick='signOut();') Sign out
-                .campo
-                    a(href="/user/iniciar_sesion") Volver a iniciar sesión
+            .wrap-input100.validate-input.m-b-23(data-validate='Debe ingresar su usuario')
+              span.label-input100 Contraseña
+              input.input100(type='password', name='password', placeholder='*****')
+              span.focus-input100(data-symbol='')
+
+            //- .wrap-input100.validate-input.m-b-23(data-validate='Debe ingresar su usuario')
+            //-   span.label-input100 Confirmar contraseña
+            //-   input.input100(type='password', name='password2', placeholder='*****')
+            //-   span.focus-input100(data-symbol='')
+
+            .container-login100-form-btn
+              .wrap-login100-form-btn
+                .login100-form-bgbtn
+                button.login100-form-btn(type="submit", value="Submit")
+                  | Registro
+            .txt1.text-center.p-t-54.p-b-20
+              span
+                | O ingresa con tus redes sociales
+            .flex-c-m
+              a.login100-social-item.bg1(href='#')
+                i.fa.fa-facebook
+              a.login100-social-item.bg2(href='#')
+                i.fa.fa-twitter
+              a.login100-social-item.bg3(href='#')
+                i.fa.fa-google
+            .flex-col-c.p-t-155
+              span.txt1.p-b-17
+                | ¿Ya estas registrado?
+              a.txt2(href='/user/iniciar_sesion')
+                | Inicia sesión
+    #dropDownSelect1
+    // ===============================================================================================
+    script(src='vendor/jquery/jquery-3.2.1.min.js')
+    // ===============================================================================================
+    script(src='vendor/animsition/js/animsition.min.js')
+    // ===============================================================================================
+    script(src='vendor/bootstrap/js/popper.js')
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // ===============================================================================================
+    script(src='vendor/select2/select2.min.js')
+    // ===============================================================================================
+    script(src='vendor/daterangepicker/moment.min.js')
+    script(src='vendor/daterangepicker/daterangepicker.js')
+    // ===============================================================================================
+    script(src='vendor/countdowntime/countdowntime.js')
+    // ===============================================================================================
+    script(src='js/main.js')
