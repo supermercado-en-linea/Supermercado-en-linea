@@ -1,12 +1,14 @@
-// Importar sequelize
-const Sequelize = require('sequelize');
 
-// Establecer los parámetros de conexión a la Base de Datos
-const db = new Sequelize('SuperEnLinea', 'NegociosWeb2019', '12345', {
+// Importar Sequilize
+const Sequilize = require('sequelize');
+
+// Establecer los paremetros de la base de datos
+const db = new Sequilize('SuperEnLinea', 'root', '', {
+
     host: 'localhost',
     dialect: 'mysql',
-    port: '3306',
-    operatorAliases: false,
+    pool: '3306',
+    operatorsAliases: false,
 
     define: {
         timestamps: false
@@ -17,7 +19,6 @@ const db = new Sequelize('SuperEnLinea', 'NegociosWeb2019', '12345', {
         min: 0,
         acquire: 30000,
         idle: 10000
-    }
-});
-
+    });
+                         
 module.exports = db;
