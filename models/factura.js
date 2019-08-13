@@ -8,6 +8,8 @@ const slug = require('slug');
 const shortid = require('shortid');
 const Cliente = require('../models/Cliente');
 
+const Cliente = require('./Cliente')
+
 const Factura = db.define('factura', {
     id : {
         type: Sequelize.INTEGER,

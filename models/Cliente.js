@@ -43,5 +43,6 @@ const Cliente = db.define('Cliente', {
             }
         }
     }
-});
+ })
+
 module.exports = Cliente;
