@@ -1,0 +1,313 @@
+doctype html
+head
+  // manejar el lenguaje para navegadores poco actualizados
+  <!--[if IE 8]>
+  <html lang="es" class="lt-ie9">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <html lang="es">
+  <!--<![endif]-->
+
+  title Inicio
+  
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='icon' type='image/png' href='images/icons/favicon.png')
+
+  link(href='https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap' rel='stylesheet')
+
+
+  link(rel='stylesheet' type='text/css' href='vendor/bootstrap/css/bootstrap.min.css')
+
+  link(rel='stylesheet' type='text/css' href='fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+
+  link(rel='stylesheet' type='text/css' href='fonts/themify/themify-icons.css')
+
+  link(rel='stylesheet' type='text/css' href='fonts/Linearicons-Free-v1.0.0/icon-font.min.css')
+
+  link(rel='stylesheet' type='text/css' href='fonts/elegant-font/html-css/style.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/animate/animate.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/css-hamburgers/hamburgers.min.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/animsition/css/animsition.min.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/select2/select2.min.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/daterangepicker/daterangepicker.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/slick/slick.css')
+
+  link(rel='stylesheet' type='text/css' href='vendor/lightbox2/css/lightbox.min.css')
+
+  link(rel='stylesheet' type='text/css' href='css/util.css')
+  link(rel='stylesheet' type='text/css' href='css/main.css')
+
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous')
+
+// header fixed
+// el header que permanece
+.wrap_header.fixed-header2.trans-0-4
+  
+  // Logo
+  a.logo(href='index.html')
+    img(src='images/icons/logo.png' alt='IMG-LOGO')
+  
+  // Menu
+  .wrap_menu
+    nav.menu
+      ul.main_menu
+        li
+          a(href='index.html') Inicio
+        li
+          a(href='product.html') Productos
+           ul.sub_menu
+            li
+              a(href='index.html') Homepage V1
+            li
+              a(href='home-02.html') Homepage V2
+            li
+              a(href='home-03.html') Homepage V3
+        li
+          a(href='contact.html') Contáctanos
+
+  // Header Icon al avanzar hacia abajo
+  .header-icons
+    a.header-wrapicon1.dis-block(href='#')
+      // carrito
+      img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
+    span.linedivide1
+    .header-wrapicon2
+      img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
+
+      // Aquí debería ir la idea de case 
+      span.header-icons-noti 0
+
+      // Header CARRITO
+      .header-cart.header-dropdown
+        ul.header-cart-wrapitem
+          li.header-cart-item
+            .header-cart-item-img
+              img(src='images/item-cart-01.jpg' alt='IMG')
+            .header-cart-item-txt
+              a.header-cart-item-name(href='#')
+                | White Shirt With Pleat Detail Back
+              span.header-cart-item-info
+                | 1 x $19.00
+          li.header-cart-item
+            .header-cart-item-img
+              img(src='images/item-cart-02.jpg' alt='IMG')
+            .header-cart-item-txt
+              a.header-cart-item-name(href='#')
+                | Converse All Star Hi Black Canvas
+              span.header-cart-item-info
+                | 1 x $39.00
+          li.header-cart-item
+            .header-cart-item-img
+              img(src='images/item-cart-03.jpg' alt='IMG')
+            .header-cart-item-txt
+              a.header-cart-item-name(href='#')
+                | Nixon Porter Leather Watch In Tan
+              span.header-cart-item-info
+                | 1 x $17.00
+        .header-cart-total
+          | Total: $75.00
+        .header-cart-buttons
+          .header-cart-wrapbtn
+          
+            // Button
+            a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='cart.html')
+              | Ver Carrito
+          .header-cart-wrapbtn
+            // Button
+            a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
+              | Comprar
+  // Fin header Icon
+// Fin header fixed 
+
+// top noti
+.flex-c-m.size22.bg0.s-text21.pos-relative
+  | APROVECHA! 20% de descuento 
+  a.s-text22.hov6.p-l-5(href='product.html')
+    | Comprar
+  button.flex-c-m.pos2.size23.colorwhite.eff3.trans-0-4.btn-romove-top-noti
+    i.fa.fa-remove.fs-13(aria-hidden='true')
+
+// Header 2
+header.header2
+  // Header desktop
+  .container-menu-header-v2.p-t-26
+    .topbar2
+      .topbar-social
+        a#carrito3(href='#')
+          i.fab.fa-facebook
+        a#carrito3(href='#')
+          i.fab.fa-instagram
+        a#carrito3(href='#')
+          i.far.fa-envelope
+      // Logo2
+      a.logo2(href='index.html')
+        img(src='images/icons/logo.png' alt='IMG-LOGO')
+      .topbar-child2
+        p Moneda
+        .topbar-language.rs1-select2
+          select.selection-1
+            option LEMP
+            option OTRA
+        // 
+        a.header-wrapicon1.dis-block.m-l-30(href='#')
+          img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
+        span.linedivide1
+        .header-wrapicon2.m-r-13
+          img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
+          // Parte del case
+          span.header-icons-noti 10
+          // Header cart noti
+          .header-cart.header-dropdown
+            ul.header-cart-wrapitem
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='images/item-cart-01.jpg' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                    | White Shirt With Pleat Detail Back
+                  span.header-cart-item-info
+                    | 1 x $19.00
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='images/item-cart-02.jpg' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                    | Converse All Star Hi Black Canvas
+                  span.header-cart-item-info
+                    | 1 x $39.00
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='images/item-cart-03.jpg' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                    | Nixon Porter Leather Watch In Tan
+                  span.header-cart-item-info
+                    | 1 x $17.00
+            .header-cart-total
+              | Total: $75.00
+            .header-cart-buttons
+              .header-cart-wrapbtn
+                // Button
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='cart.html')
+                  | Ver carrito
+              .header-cart-wrapbtn
+                // Button
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
+                  | Comprar
+    .wrap_header
+      // Menu
+      .wrap_menu
+        nav.menu
+          ul.main_menu
+            li
+              a(href='index.html') Inicio   
+            li
+              a(href='/productos') Productos
+              ul.sub_menu
+                li
+                  a(href='index.html') Homepage V1
+                li
+                  a(href='home-02.html') Homepage V2
+                li
+                  a(href='home-03.html') Homepage V3
+            li
+              a(href='contact.html') Contáctanos
+              
+      // Header Icon
+      .header-icons
+  // Header Mobile
+  .wrap_header_mobile
+    // Logo moblie
+    a.logo-mobile(href='index.html')
+      img(src='images/icons/logo.png' alt='IMG-LOGO')
+    // Button show menu
+    .btn-show-menu
+      // Header Icon mobile
+      .header-icons-mobile
+        a.header-wrapicon1.dis-block(href='#')
+          img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
+        span.linedivide2
+        .header-wrapicon2
+          img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
+          span.header-icons-noti 0
+          // Header cart noti
+          .header-cart.header-dropdown
+            ul.header-cart-wrapitem
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='images/item-cart-01.jpg' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                    | White Shirt With Pleat Detail Back
+                  span.header-cart-item-info
+                    | 1 x $19.00
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='images/item-cart-02.jpg' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                    | Converse All Star Hi Black Canvas
+                  span.header-cart-item-info
+                    | 1 x $39.00
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='images/item-cart-03.jpg' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                    | Nixon Porter Leather Watch In Tan
+                  span.header-cart-item-info
+                    | 1 x $17.00
+            .header-cart-total
+              | Total: $75.00
+            .header-cart-buttons
+              .header-cart-wrapbtn
+                // Button
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='cart.html')
+                  | Ver carrito
+              .header-cart-wrapbtn
+                // Button
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
+                  | Compra
+      .btn-show-menu-mobile.hamburger.hamburger--squeeze
+        span.hamburger-box
+          span.hamburger-inner
+  // Menu Mobile
+  .wrap-side-menu
+    nav.side-menu
+      ul.main-menu
+        li.item-topbar-mobile.p-l-20.p-t-8.p-b-8
+          .topbar-child2-mobile
+            p Moneda
+            .topbar-language.rs1-select2
+              select.selection-1(name='time')
+                option LEMP
+                option OTRA
+        li.item-topbar-mobile.p-l-10
+          .topbar-social-mobile
+            a.topbar-social-item.fa.fa-facebook(href='#')
+            a.topbar-social-item.fa.fa-instagram(href='#')
+            a.topbar-social-item.fa.fa-pinterest-p(href='#')
+            a.topbar-social-item.fa.fa-snapchat-ghost(href='#')
+            a.topbar-social-item.fa.fa-youtube-play(href='#')
+        li.item-menu-mobile
+          a(href='index.html') Inicio
+         
+        li.item-menu-mobile
+          a(href='product.html') Productos
+           ul.sub-menu
+            li
+              a(href='index.html') Homepage V1
+            li
+              a(href='home-02.html') Homepage V2
+            li
+              a(href='home-03.html') Homepage V3
+          i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
+          
+        li.item-menu-mobile
+          a(href='contact.html') Contáctanos
