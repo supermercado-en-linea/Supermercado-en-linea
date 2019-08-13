@@ -9,7 +9,7 @@ const { body } = require('express-validator');
 // Importar el Controller
 
 // TODO: Falta implementar el controlador
-const inventarioController = require('../controllers/inventarioController')
+const inventariosController = require('../controllers/inventarioControllers');
 //const userController = require('../controllers/userController')
 
 
@@ -23,10 +23,11 @@ module.exports = function () {
     
     // Rutas de inventarios
     router.get('/', inventariosController.inventariosHome);
-    router.get('/ver_inventarios', inventariosController.ariculosHome2)
-    router.get('/crear_inventarios', inventariosController.wysiwyg);
-    router.post('/crear_inventario',  body('content').not().isEmpty(), body('titulo').not().isEmpty(),inventariosController.nuevoArticulo);
-    router.get('/inventario/:url', inventariosController.inventarioPorUrl);
+    router.get('/verInventario', inventariosController.inventarioHome2);
+    router.get('/crearInventario', inventariosController.crearInventario);
+    router.get('/carrito',inventariosController.carrito);
+    router.post('/crearInventario',  body('content').not().isEmpty(), body('nombre').not().isEmpty(),inventariosController.nuevoInventario);
+    //router.get('/inventario/:url', inventariosController.inventarioPorUrl);
 
     return router;
 }

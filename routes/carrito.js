@@ -6,7 +6,9 @@ const router = express.Router();
 // Importar el Controller
 
 // TODO: Falta implementar el controlador
-const FacturaController = require('../controllers/facturaController')
+
+
+const carritosController = require('../controllers/carritoController');
 //const userController = require('../controllers/userController')
 
 
@@ -17,13 +19,11 @@ const FacturaController = require('../controllers/facturaController')
 
 
 module.exports = function () {
-    
-    // Rutas de inventarios
-    router.get('/agregar_carrito', inventariosController.inventariosHome);
-    router.get('/ver_inventarios', inventariosController.ariculosHome2)
-    router.get('/crear_inventarios', inventariosController.wysiwyg);
-    router.post('/crear_inventario',  body('content').not().isEmpty(), body('titulo').not().isEmpty(),inventariosController.nuevoArticulo);
-    router.get('/inventario/:url', inventariosController.inventarioPorUrl);
+    // Rutas de carritos
+    router.post('/crearCarrito', carritosController.crearCarrito);
+    router.get('/ver_carritos', carritosController.ariculosHome2);
+   // router.post('/crear_carrito', carritosController.nuevoArticulo);
+    router.get('/carrito/:url', carritosController.carritoPorUrl);
 
     return router;
 }

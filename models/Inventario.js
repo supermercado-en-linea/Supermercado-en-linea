@@ -9,18 +9,29 @@ const shortid = require('shortid');
 
 // Definición del modelo (Model)
 const Inventario = db.define('inventario', {
-    id : {
+    idInventario : {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
 
     nombre : {
-        type: Sequelize.STRING(200)
+        type: Sequelize.STRING(30)
     },
 
-    cuerpo : {
-        type: Sequelize.STRING(8000)
+    descripcion : {
+        type: Sequelize.STRING(100)
+    },
+    costoUnitario :{
+        type: Sequelize.DECIMAL(5,2)
+    },
+    precioVenta :{
+        type: Sequelize.DECIMAL(5,2)
+    },
+    stock :{
+        type: Sequelize.DECIMAL(5,2)
+    },foto: {
+        type: Sequelize.STRING
     },
     url : Sequelize.STRING
 }, {
@@ -40,6 +51,8 @@ const Inventario = db.define('inventario', {
         }
     }
 });
+
+
 
 // Importar el modelo para poder utilizarlo
 module.exports = Inventario;

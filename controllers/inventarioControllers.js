@@ -1,15 +1,27 @@
 // Importar los modelos
 const Inventario = require('../models/Inventario');
+const Categoria = require('../models/Categoria');
+
 //importar convertidor a pug
 const html2pug = require('html2pug')
 
-var markdown = require('marked');
+//var markdown = require('marked');
 
 exports.inventariosHome = async (req, res) => {
     // Obtener todos los proyectos
-    // const inventario = await inventario.findAll();
+    // const inventario = await inventario.findAll(); 
+    res.render('inventario/inventario');
+}; 
+exports.carrito = async (req, res) => {
+    // Obtener todos los proyectos
+    // const inventario = await inventario.findAll(); 
+    res.render('inventario/carrito');
+}; 
+exports.crearInventario = async (req, res)=>{
+    const categoriaPromise = Categoria.findAll();
 
-    res.render('index');
+    const [categorias] = await Promise.all([categoriaPromise]).then();
+    res.render('inventario/crearInventario',{categorias});
 };
 
 exports.inventarioHome2 = async(req, res) =>{
@@ -17,33 +29,38 @@ exports.inventarioHome2 = async(req, res) =>{
 
     const [inventarios] = await Promise.all([inventariosPromise]).then();
     
-    res.render('verInventarios',{
-        inventarios,
-        markdown
-    });
+    res.render('inventario/verInventario',{inventarios});
 }
+
 exports.nuevoInventario = async (req, res) => {
 
-    const titulo = req.body.titulo;
+    const nombre = req.body.nombre;
     const content = req.body.content;
+    const costo = req.body.costo;
+    const precio = req.body.precio;
+    const cantidad = req.body.stock;
+    //const Categoria = 
    
     let errores = [];
     
-    if (!titulo && !content ) {
+    if (!nombre && !content && !costo && !precio && !cantidad  ) {
         errores.push({'texto': 'Se encotraron errores'});
     }
    
     if (errores.length > 0) {
         console.log(errores)
-        res.render('/crear_inventarios');
+        res.render('inventario/crearInventario');
     }else{
         let newArticle = new Inventario({
-                    nombre:titulo,
-                    cuerpo:content
+                    nombre:nombre,
+                    descripcion:content,
+                    costoUnitario:costo,
+                    precioVenta: precio,
+                    stock: cantidad
         });
 
-        await Inventario.create({nombre: newArticle.nombre, cuerpo: newArticle.cuerpo});
-        res.redirect('/ver_inventarios');
+        await Inventario.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion, costoUnitario: newArticle.costoUnitario, precioVenta: newArticle.precioVenta,stock:newArticle.stock});
+        res.redirect('verInventario');
     }
 }
 
@@ -62,3 +79,10 @@ exports.inventarioPorUrl = async (req, res) => {
     });
 
 }
+
+
+
+/* exports.CCC = function(req, res){
+    res.render('inventario/CrearInventario');
+
+} */
