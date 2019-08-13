@@ -1,0 +1,34 @@
+extends ./inventario
+
+block contenido
+  
+  section
+      form.bg-light.p-5.contact-form(action='/inventario/crearInventario', method='POST')
+        .form-group
+          h4 Nombre producto
+          input.form-control(name="nombre", type='text', placeholder='Nombre del producto')
+          h4 Descripción
+          textarea.form-control(name='content' type='text',placeholder='Descripcion del producto')
+          h4 Costo unitario
+          input.form-control(name="costo", type='text', placeholder='Costo unitario')
+          h4 Precio de venta
+          input.form-control(name="precio", type='text', placeholder='Precio de venta')
+          h4 cantidad
+          input.form-control(name="stock", type='text', placeholder='stock')
+          h4 Categoria
+          if (categorias)
+            select(id="inputState" name='categoria').form-control
+              each categoria in categorias
+                option.categoriasText(href=`/categoria/${categoria.url}`) #{categoria.nombre}      
+          input.btn.btn-primary.py-3.px-5(id="submit" ,type='submit', value='Aceptar')
+        
+
+    
+  
+              //- script.
+              //-   var array =[{{ce}}];
+              //-   for(var i = 0; i<= array.length-1;i++){
+              //-   var salida ='';
+              //-   salida += '<option>'+ array[i] + '</option>';
+              //-   document.getElementById('inputState').innerHTML = salida;
+              //-   }  
