@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.8.1
+ Version: 1.8.0
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -483,9 +483,7 @@
 
         var _ = this,
             i, dot;
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
+ if (_.options.dots === true) {
             _.$slider.addClass('slick-dotted');
 
             dot = $('<ul />').addClass(_.options.dotsClass);
@@ -559,7 +557,7 @@
         newSlides = document.createDocumentFragment();
         originalSlides = _.$slider.children();
 
-        if(_.options.rows > 0) {
+          if(_.options.rows > 1) {
 
             slidesPerSection = _.options.slidesPerRow * _.options.rows;
             numOfSlides = Math.ceil(
@@ -821,7 +819,7 @@
 
         var _ = this, originalSlides;
 
-        if(_.options.rows > 0) {
+           if(_.options.rows > 1) {
             originalSlides = _.$slides.children().children();
             originalSlides.removeAttr('style');
             _.$slider.empty().append(originalSlides);
@@ -1014,37 +1012,23 @@
 
         var _ = this;
 
-        // If any child element receives focus within the slider we need to pause the autoplay
-        _.$slider
+_.$slider
             .off('focus.slick blur.slick')
-            .on(
-                'focus.slick',
-                '*', 
-                function(event) {
-                    var $sf = $(this);
+            .on('focus.slick blur.slick', '*', function(event) {
 
-                    setTimeout(function() {
-                        if( _.options.pauseOnFocus ) {
-                            if ($sf.is(':focus')) {
-                                _.focussed = true;
-                                _.autoPlay();
-                            }
-                        }
-                    }, 0);
-                }
-            ).on(
-                'blur.slick',
-                '*', 
-                function(event) {
-                    var $sf = $(this);
+            event.stopImmediatePropagation();
+            var $sf = $(this);
 
-                    // When a blur occurs on any elements within the slider we become unfocused
-                    if( _.options.pauseOnFocus ) {
-                        _.focussed = false;
-                        _.autoPlay();
-                    }
+            setTimeout(function() {
+
+                if( _.options.pauseOnFocus ) {
+                    _.focussed = $sf.is(':focus');
+                    _.autoPlay();
                 }
-            );
+
+            }, 0);
+
+        });
     };
 
     Slick.prototype.getCurrent = Slick.prototype.slickCurrentSlide = function() {
@@ -1336,12 +1320,9 @@
                 });
 
                 if (slideControlIndex !== -1) {
-                   var ariaButtonControl = 'slick-slide-control' + _.instanceUid + slideControlIndex
-                   if ($('#' + ariaButtonControl).length) {
-                     $(this).attr({
-                         'aria-describedby': ariaButtonControl
-                     });
-                   }
+                  $(this).attr({
+                        'aria-describedby': 'slick-slide-control' + _.instanceUid + slideControlIndex
+                    });
                 }
             });
 
@@ -1368,11 +1349,7 @@
         }
 
         for (var i=_.currentSlide, max=i+_.options.slidesToShow; i < max; i++) {
-          if (_.options.focusOnChange) {
-            _.$slides.eq(i).attr({'tabindex': '0'});
-          } else {
-            _.$slides.eq(i).removeAttr('tabindex');
-          }
+           _.$slides.eq(i).attr('tabindex', 0);
         }
 
         _.activateADA();
@@ -1406,8 +1383,7 @@
     Slick.prototype.initDotEvents = function() {
 
         var _ = this;
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+           if (_.options.dots === true) {
             $('li', _.$dots).on('click.slick', {
                 message: 'index'
             }, _.changeSlide);
@@ -1417,7 +1393,7 @@
             }
         }
 
-        if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.slideCount > _.options.slidesToShow) {
+           if ( _.options.dots === true && _.options.pauseOnDotsHover === true ) {
 
             $('li', _.$dots)
                 .on('mouseenter.slick', $.proxy(_.interrupt, _, true))
@@ -1718,7 +1694,6 @@
 
             if (_.options.accessibility === true) {
                 _.initADA();
-
                 if (_.options.focusOnChange) {
                     var $currentSlide = $(_.$slides.get(_.currentSlide));
                     $currentSlide.attr('tabindex', 0).focus();
@@ -2511,7 +2486,7 @@
         if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > _.getDotCount() * _.options.slidesToScroll)) {
             if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+       if (dontAnimate !== true) {
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -2523,7 +2498,8 @@
         } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
             if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+
+                   if (dontAnimate !== true) {
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -2593,7 +2569,7 @@
             return;
         }
 
-        if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+          if (dontAnimate !== true) {
             _.animateSlide(targetLeft, function() {
                 _.postSlide(animSlide);
             });

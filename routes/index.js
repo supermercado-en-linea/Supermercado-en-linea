@@ -1,6 +1,7 @@
+
 const express = require('express');
 const router = express.Router();
-
+const indexController = require('../controllers/indexController')
 
 
 
@@ -14,5 +15,14 @@ router.get('/', async (req, res) => {
    //res.render('inventario/crearInventario');
 });
 
+module.exports = function () {
+
+    router.get('/', indexController.paginaPrincipal);
+
+    router.get('/productos', indexController.productos);
+    
+    
+    return router;
+}
 
 module.exports = router;
