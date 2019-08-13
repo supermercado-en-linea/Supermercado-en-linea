@@ -2,7 +2,6 @@
 const express = require('express');
 // Importar las rutas disponibles
 //const routes = require('./routes');
-
 let userRoutes = require('./routes/user');
 
 // Importar los módulos para direcciones (path)
@@ -59,11 +58,11 @@ app.use(flash());
 // Añadir la carpeta (ruta) que contiene las View (vistas)
 app.set('views', path.join(__dirname, './views'));
 
-
+const indexRoute = require('./routes/index')
 app.use('/factura', facturaRoute());
 app.use('/user', userRoutes());
+app.use('/', indexRoute());
 
-app.use(require('./routes/index'));
 //app.use('/', routes());
 let inventarioRoutes = require('./routes/inventario');
 app.use('/inventario', inventarioRoutes());
