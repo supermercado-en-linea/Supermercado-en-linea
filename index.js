@@ -15,7 +15,7 @@ const passport = require('./config/passport')
 const session = require("express-session")
 
 const flash = require("connect-flash");
-
+const facturaRoute = require("./routes/factura")
 // Crear la conexión con la Base de Datos
 //const db = require('./config/db');
 
@@ -60,12 +60,12 @@ app.use(flash());
 app.set('views', path.join(__dirname, './views'));
 
 
+app.use('/factura', facturaRoute());
 app.use('/user', userRoutes());
 
 app.use(require('./routes/index'));
 //app.use('/', routes());
 let inventarioRoutes = require('./routes/inventario');
 app.use('/inventario', inventarioRoutes());
-
 // Inicializar el servidor de express en un puerto
 app.listen(9999);
