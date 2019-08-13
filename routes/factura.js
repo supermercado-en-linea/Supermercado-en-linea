@@ -19,11 +19,7 @@ const FacturaController = require('../controllers/facturaController')
 module.exports = function () {
     
     // Rutas de inventarios
-    router.get('/crear', inventariosController.inventariosHome);
-    router.get('/ver_inventarios', inventariosController.ariculosHome2)
-    router.get('/crear_inventarios', inventariosController.wysiwyg);
-    router.post('/crear_inventario',  body('content').not().isEmpty(), body('titulo').not().isEmpty(),inventariosController.nuevoArticulo);
-    router.get('/inventario/:url', inventariosController.inventarioPorUrl);
-
+    router.get('/crear', FacturaController.nuevaFactura);
+   
     return router;
 }
