@@ -8,7 +8,6 @@ const db = new Sequilize('SuperEnLinea', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
     pool: '3306',
-    operatorsAliases: false,
 
     define: {
         timestamps: false
@@ -19,6 +18,8 @@ const db = new Sequilize('SuperEnLinea', 'root', '', {
         min: 0,
         acquire: 30000,
         idle: 10000
-    });
-                         
+    }
+});
+                      
+
 module.exports = db;

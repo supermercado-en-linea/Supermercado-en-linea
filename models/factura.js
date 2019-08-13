@@ -6,6 +6,9 @@ const db = require('../config/db');
 const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
+const Cliente = require('../models/Cliente');
+
+const Cliente = require('./Cliente')
 
 const Factura = db.define('factura', {
     id : {
@@ -44,7 +47,7 @@ const Factura = db.define('factura', {
     }
 });
 
-Factura.belogsTo(Cliente);
+Factura.belongsTo(Cliente);
 
 // Importar el modelo para poder utilizarlo
 module.exports = Factura;
