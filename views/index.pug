@@ -45,26 +45,30 @@ head
   link(rel='stylesheet' type='text/css' href='css/main.css')
 
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous')
+
 // header fixed
+// el header que permanece
 .wrap_header.fixed-header2.trans-0-4
+  
   // Logo
   a.logo(href='index.html')
     img(src='images/icons/logo.png' alt='IMG-LOGO')
+  
   // Menu
   .wrap_menu
     nav.menu
       ul.main_menu
         li
           a(href='index.html') Inicio
-          ul.sub_menu
+        li
+          a(href='product.html') Productos
+           ul.sub_menu
             li
               a(href='index.html') Homepage V1
             li
               a(href='home-02.html') Homepage V2
             li
               a(href='home-03.html') Homepage V3
-        li
-          a(href='product.html') Productos
         li
           a(href='cart.html') Compra
         li
@@ -133,6 +137,7 @@ head
     | Comprar
   button.flex-c-m.pos2.size23.colorwhite.eff3.trans-0-4.btn-romove-top-noti
     i.fa.fa-remove.fs-13(aria-hidden='true')
+
 // Header 2
 header.header2
   // Header desktop
@@ -153,7 +158,7 @@ header.header2
         .topbar-language.rs1-select2
           select.selection-1
             option LEMP
-            option USD
+            option OTRA
         // 
         a.header-wrapicon1.dis-block.m-l-30(href='#')
           img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
@@ -928,72 +933,7 @@ section.parallax0.parallax100(style='background-image: url(images/bg-video-01.jp
         i.fa.fa-play(aria-hidden='true')
         | &#x9;&#x9;&#x9;&#x9;&#x9;Play Video
 
-// Instagram
-section.instagram.p-t-20
-  .sec-title.p-b-52.p-l-15.p-r-15
-    h3.m-text5.t-center
-      | @ follow us on Instagram
-  .flex-w
-    // Block4
-    .block4.wrap-pic-w
-      img(src='images/gallery-03.jpg' alt='IMG-INSTAGRAM')
-      a.block4-overlay.sizefull.ab-t-l.trans-0-4(href='#')
-        span.block4-overlay-heart.s-text9.flex-m.trans-0-4.p-l-40.p-t-25
-          i.icon_heart_alt.fs-20.p-r-12(aria-hidden='true')
-          span.p-t-2 39
-        .block4-overlay-txt.trans-0-4.p-l-40.p-r-25.p-b-30
-          p.s-text10.m-b-15.h-size1.of-hidden
-            | Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-          span.s-text9
-            | Photo by @nancyward
-    // Block4
-    .block4.wrap-pic-w
-      img(src='images/gallery-07.jpg' alt='IMG-INSTAGRAM')
-      a.block4-overlay.sizefull.ab-t-l.trans-0-4(href='#')
-        span.block4-overlay-heart.s-text9.flex-m.trans-0-4.p-l-40.p-t-25
-          i.icon_heart_alt.fs-20.p-r-12(aria-hidden='true')
-          span.p-t-2 39
-        .block4-overlay-txt.trans-0-4.p-l-40.p-r-25.p-b-30
-          p.s-text10.m-b-15.h-size1.of-hidden
-            | Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-          span.s-text9
-            | Photo by @nancyward
-    // Block4
-    .block4.wrap-pic-w
-      img(src='images/gallery-09.jpg' alt='IMG-INSTAGRAM')
-      a.block4-overlay.sizefull.ab-t-l.trans-0-4(href='#')
-        span.block4-overlay-heart.s-text9.flex-m.trans-0-4.p-l-40.p-t-25
-          i.icon_heart_alt.fs-20.p-r-12(aria-hidden='true')
-          span.p-t-2 39
-        .block4-overlay-txt.trans-0-4.p-l-40.p-r-25.p-b-30
-          p.s-text10.m-b-15.h-size1.of-hidden
-            | Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-          span.s-text9
-            | Photo by @nancyward
-    // Block4
-    .block4.wrap-pic-w
-      img(src='images/gallery-13.jpg' alt='IMG-INSTAGRAM')
-      a.block4-overlay.sizefull.ab-t-l.trans-0-4(href='#')
-        span.block4-overlay-heart.s-text9.flex-m.trans-0-4.p-l-40.p-t-25
-          i.icon_heart_alt.fs-20.p-r-12(aria-hidden='true')
-          span.p-t-2 39
-        .block4-overlay-txt.trans-0-4.p-l-40.p-r-25.p-b-30
-          p.s-text10.m-b-15.h-size1.of-hidden
-            | Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-          span.s-text9
-            | Photo by @nancyward
-    // Block4
-    .block4.wrap-pic-w
-      img(src='images/gallery-15.jpg' alt='IMG-INSTAGRAM')
-      a.block4-overlay.sizefull.ab-t-l.trans-0-4(href='#')
-        span.block4-overlay-heart.s-text9.flex-m.trans-0-4.p-l-40.p-t-25
-          i.icon_heart_alt.fs-20.p-r-12(aria-hidden='true')
-          span.p-t-2 39
-        .block4-overlay-txt.trans-0-4.p-l-40.p-r-25.p-b-30
-          p.s-text10.m-b-15.h-size1.of-hidden
-            | Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-          span.s-text9
-            | Photo by @nancyward
+
 // Shipping
 section.shipping.bgwhite.p-t-62.p-b-46
   .flex-w.p-l-15.p-r-15
@@ -1102,12 +1042,15 @@ footer.bg6.p-t-45.p-b-43.p-l-45.p-r-45
       i.fa.fa-heart-o(aria-hidden='true')
       |  by 
       a(href='https://colorlib.com' target='_blank') Colorlib
+
 // Back to top
 #myBtn.btn-back-to-top.bg0-hov
   span.symbol-btn-back-to-top
     i.fa.fa-angle-double-up(aria-hidden='true')
 // Container Selection1
 #dropDownSelect1
+
+
 // Modal Video 01
 #modal-video-01.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
   .modal-dialog(role='document' data-dismiss='modal')
