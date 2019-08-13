@@ -43,10 +43,10 @@ exports.facebookOAuth = async (res, req, next) => {
     console.log('Estas aqui en usuariosController');
 }
 
-exports.googleOAuth = async(res, req, next) => {
-    const token = signToken(req.Usuario);
-    res.status(200).json([ token ]);
-}
+// exports.googleOAuth = async(res, req, next) => {
+//     const token = signToken(req.Usuario);
+//     res.status(200).json([ token ]);
+// }
 
 exports.formularioIniciarSesion = (req, res) => {
     //Capturar los errores generados por passport

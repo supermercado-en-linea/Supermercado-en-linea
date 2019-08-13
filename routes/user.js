@@ -26,8 +26,8 @@ module.exports = function () {
     router.get('/iniciar_sesion', usuariosController.formularioIniciarSesion);
     router.post('/iniciar_sesion', authController.autenticarUsuario);
 
-    router.route('/auth/google')
-        .post(passport.authenticate('google', { session : false }), authController.autenticarUsuarioGoogle);
+    // router.route('/auth/google')
+    //     .post(passport.authenticate('google', { session : false }), authController.autenticarUsuarioGoogle);
 
     router.route('/auth/facebook')
         .post(passport.authenticate('facebook', { session : false }), authController.autenticarUsuarioFacebook);

@@ -43,23 +43,23 @@ passport.use(
 );
 
 // Estrategia de autenticacion de google
-passport.use('google',
-    new GoogleStrategy (
-        {
-            clientId: "630114060982-loh16abu71viflj0b8i8e6730ds9t6aq.apps.googleusercontent.com",
-            clientSecret: "DsKXO5fAOBORFF3dEiwxBkmi"
-        },
-        async (accessToken, refreshToken, profile, done) => {
-            try {
-                console.log('accessToken: ', accessToken);
-                console.log('refreshToken: ', refreshToken);
-                console.log('profile: ', profile);
-            } catch (error) {
-                done(error, false, error.message);
-            }
-        }
-    )
-)
+// passport.use('google',
+//     new GoogleStrategy (
+//         {
+//             clientId: "630114060982-loh16abu71viflj0b8i8e6730ds9t6aq.apps.googleusercontent.com",
+//             clientSecret: "DsKXO5fAOBORFF3dEiwxBkmi"
+//         },
+//         async (accessToken, refreshToken, profile, done) => {
+//             try {
+//                 console.log('accessToken: ', accessToken);
+//                 console.log('refreshToken: ', refreshToken);
+//                 console.log('profile: ', profile);
+//             } catch (error) {
+//                 done(error, false, error.message);
+//             }
+//         }
+//     )
+// )
 
 //Estrategia de autenticacion con Facebook
 passport.use('facebook',
