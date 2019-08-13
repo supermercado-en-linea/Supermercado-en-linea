@@ -28,8 +28,8 @@ exports.inventarioHome2 = async(req, res) =>{
     const inventariosPromise = Inventario.findAll();
 
     const [inventarios] = await Promise.all([inventariosPromise]).then();
-    
-    res.render('inventario/verInventario',{inventarios});
+    console.log('hola');
+    res.render('productos',{inventarios});
 }
 
 exports.nuevoInventario = async (req, res) => {

@@ -1,56 +1,77 @@
-'use strict';
-var models = require('../models/index');
-var Categoria = models.marca;
-var uuidv4 = require('uuid/v4');
+// Importar los modelos
+const Categoria = require('../models/Categoria');
+//const Categoria = require('../models/Categoria');
 
-class CategoriaController {
-    cargarVista(req, res) {
-        Categoria.findAll().then(listaCategoria => {
-            if (listaCategoria) {
-                res.render('administrador', {titulo: 'Vinos Maria | Categorias', fragmento: 'fragments/frm_marca',
-                    listaCategoria: listaCategoria});
-            } else {
-                console.log(listaCategoria.errors);
-            }
-        });
+//importar convertidor a pug
+const html2pug = require('html2pug')
+
+
+
+exports.categoriasHome = async (req, res) => {
+    // Obtener todos los proyectos
+    // const categoria = await categoria.findAll(); 
+    res.render('categoria/categoria');
+}; 
+
+
+exports.crearCategoria = async (req, res)=>{
+    
+    res.render('categoria/crearCategoria');
+};
+
+
+exports.categoriaHome2 = async(req, res) =>{
+    const categoriasPromise = Categoria.findAll();
+
+    const [categorias] = await Promise.all([categoriasPromise]).then();
+    
+    res.render('categoria/verCategoria',{categorias});
+}
+
+exports.nuevaCategoria = async (req, res) => {
+
+    const nombre = req.body.nombre;
+    const descripcion = req.body.descripcion;
+    const costo = req.body.costo;
+    const precio = req.body.precio;
+    const cantidad = req.body.stock;
+    //const Categoria = 
+   
+    let errores = [];
+    
+    if (!nombre && !content && !costo && !precio && !cantidad  ) {
+        errores.push({'texto': 'Se encotraron errores'});
     }
-
-    guardar(req, res) {
-        Categoria.findOne({where: {nombre: req.body.nombreCategoria}}).then(marca => {
-            if (marca) {
-                req.flash('info', 'La marca ya está ingresada.', false);
-                res.redirect('/administracion/marca');
-            } else {
-                var modeloCategoria = {
-                    nombre: req.body.nombreCategoria,
-                    external_id: uuidv4()
-                };
-                Categoria.create(modeloCategoria).then(newCategoria => {
-                    if (!newCategoria) {
-                        req.flash('info', 'Ocurrió un error al registrar la marca.', false);
-                    } else if (newCategoria) {
-                        req.flash('info', 'Se registró la marca con éxito.', false);
-                    }
-                    res.redirect('/administracion/marca');
-                });
-            }
+   
+    if (errores.length > 0) {
+        console.log(errores)
+        res.render('categoria/crearCategoria');
+    }else{
+        let newArticle = new Categoria({
+                    nombre:nombre,
+                    descripcion:content,
+                    costoUnitario:costo,
+                    precioVenta: precio,
+                    stock: cantidad
         });
-    }
 
-    modificar(req, res) {
-        var modeloCategoria = {
-            nombre: req.body.nombreCategoria,
-            estado: req.body.estado
-        };
-        Categoria.update(modeloCategoria, {where: {external_id: req.body.external}}).then(newCategoria => {
-            if (newCategoria == 0) {
-                req.flash('info', 'No se ha realizado ninguna Modificación.', false);
-            } else {
-                req.flash('info', 'Se modificó la marca con éxito.', false);
-            }
-            res.redirect('/administracion/marca');
-        });
+        await Categoria.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion, costoUnitario: newArticle.costoUnitario, precioVenta: newArticle.precioVenta,stock:newArticle.stock});
+        res.redirect('verCategoria');
     }
 }
 
-module.exports = CategoriaController;
+exports.categoriaPorUrl = async (req, res) => {
+
+    const categoriasPromise = Categoria.findOne({
+        where : {
+            url : req.params.url
+        }
+    });
+
+    const [categoria] = await Promise.all([categoriasPromise]).then();
+    
+    res.render('categoria',{
+        categoria
+    });
+
+}

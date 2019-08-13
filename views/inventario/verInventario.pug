@@ -1,34 +1,6 @@
 extends ./inventario
  
-block contenido
-    //- if (inventarios)
-    //-     .grid-stack
-    //-         each inventario in inventarios 
-    //-             .grid-stack-item(data-gs-x='0' data-gs-y='0' data-gs-width='4' data-gs-height='2')
-    //-                 .grid-stack-item-content
-    //-                     a.articulosText(href=`/inventario/${inventario.url}`) #{inventario.nombre}
-    //-                     h2.text-warning #{inventario.precioVenta}
-    //- script(type='text/javascript').
-    //-     $(function () {
-    //-         var options = {cellHeight: 80, verticalMargin: 10};
-    //-         $('.grid-stack').gridstack(options);
-    //-     });
-     
-    script.
-        function agregarItem(external) {
-         var url = 'http://localhost:9999/agregar' + external;
-         $.ajax({
-             url: url,
-                type: 'GET',
-             dataType: 'json',
-                success: function (data, textStatus, jqXHR) {
-                 refrescar();
-                }, error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(jqXHR);
-             }
-            });
-            return false;
-        }
+block contenido  
 
     .section__content.section__content--p30
         .container-fluid

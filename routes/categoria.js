@@ -23,9 +23,9 @@ module.exports = function () {
     
     // Rutas de categorias
     router.get('/', categoriasController.categoriasHome);
-    router.get('/verInventario', categoriasController.categoriaHome2);
-    router.get('/crearInventario', categoriasController.crearInventario);
-    router.post('/crearInventario',  body('content').not().isEmpty(), body('nombre').not().isEmpty(),categoriasController.nuevoInventario);
+    router.get('/verCategoria', categoriasController.categoriaHome2);
+    router.get('/crearCategoria', categoriasController.crearInventario);
+    router.post('/crearCategoria',  categoriasController.nuevoInventario);
     //router.get('/categoria/:url', categoriasController.categoriaPorUrl);
 
     return router;
