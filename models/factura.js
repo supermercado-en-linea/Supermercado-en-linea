@@ -44,7 +44,7 @@ const Factura = db.define('factura', {
     }
 });
 
-Factura.belogsTo(Cliente);
+Factura.belongsTo(Cliente);
 
 // Importar el modelo para poder utilizarlo
 module.exports = Factura;
