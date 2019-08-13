@@ -12,5 +12,6 @@ module.exports = function () {
 
     router.get('/productos', indexController.productos);
     
+    
     return router;
 }
