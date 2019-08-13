@@ -21,4 +21,5 @@ const db = new Sequilize('SuperEnLinea', 'root', '', {
     }
 });
                       
+
 module.exports = db;
