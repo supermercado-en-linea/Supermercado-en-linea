@@ -3061,14 +3061,14 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 .s-text7 {
 	font-family: Montserrat-Regular;
 	font-size: 13px;
-	color: #555555;
+	color: #fff;
 	line-height: 1.8;
 }
 
 .s-text8, .s-text8 a {
 	font-family: Montserrat-Regular;
 	font-size: 13px;
-	color: #888888;
+	color: black;
 	line-height: 1.8;
 }
 
@@ -3626,7 +3626,8 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 }
 
 .w-size12 {
-	width: 200px;
+	height: 100px;
+	width: 600px;
 }
 
 .w-size13 {
@@ -3709,11 +3710,11 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 ///////////////////////////////////////////////////////////
 */
 .bg0 {background-color: #ffbe41;}
-.bg1 {background-color: #222222;}
+.bg1 {background-color: #258039;}
 .bg3 {background-color: rgba(255,255,255,0.95);}
-.bg4 {background-color: #111111;}
+.bg4 {background-color: #258039;}
 .bg5 {background-color: #f2f2f2;}
-.bg6 {background-color: #f0f0f0;}
+.bg6 {background-color: #ffbe41;}
 .bg7 {background-color: #333333;}
 .bg8 {background-color: #e6e6e6;}
 

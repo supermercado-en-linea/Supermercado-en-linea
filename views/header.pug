@@ -8,7 +8,7 @@ head
   <html lang="es">
   <!--<![endif]-->
 
-  title Inicio
+  title #{nombrePagina}
   
   meta(name='viewport' content='width=device-width, initial-scale=1')
   link(rel='icon' type='image/png' href='images/icons/favicon.png')
@@ -50,7 +50,7 @@ head
 .wrap_header.fixed-header2.trans-0-4
   
   // Logo
-  a.logo(href='index.html')
+  a.logo(href='/')
     img(src='images/icons/logo.png' alt='IMG-LOGO')
   
   // Menu
@@ -58,18 +58,27 @@ head
     nav.menu
       ul.main_menu
         li
-          a(href='index.html') Inicio
+          a(href='/') Inicio
         li
-          a(href='product.html') Productos
-           ul.sub_menu
+          a(href='/productos') Productos
+
+          ul.sub_menu
             li
-              a(href='index.html') Homepage V1
+              a(href='#') Despensa
             li
-              a(href='home-02.html') Homepage V2
+              a(href='home-02.html') Carnes
             li
-              a(href='home-03.html') Homepage V3
+              a(href='home-03.html') Lácteos
+            li
+              a(href='home-03.html') Frutas y vegetales
+            li
+              a(href='home-03.html') Panes
+            li
+              a(href='home-03.html') Bebidas
+            li
+              a(href='home-03.html') Snacks y dulces
         li
-          a(href='contact.html') Contáctanos
+          a(href='/contactanos') Contáctanos
 
   // Header Icon al avanzar hacia abajo
   .header-icons
@@ -79,8 +88,6 @@ head
     span.linedivide1
     .header-wrapicon2
       img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
-
-      // Aquí debería ir la idea de case 
       span.header-icons-noti 0
 
       // Header CARRITO
@@ -146,7 +153,7 @@ header.header2
         a#carrito3(href='#')
           i.far.fa-envelope
       // Logo2
-      a.logo2(href='index.html')
+      a.logo2(href='/')
         img(src='images/icons/logo.png' alt='IMG-LOGO')
       .topbar-child2
         p Moneda
@@ -206,21 +213,30 @@ header.header2
         nav.menu
           ul.main_menu
             li
-              a(href='index.html') Inicio   
+              a(href='/') Inicio   
             li
               a(href='/productos') Productos
               ul.sub_menu
                 li
-                  a(href='index.html') Homepage V1
+                  a(href='index.html') Despensa
                 li
-                  a(href='home-02.html') Homepage V2
+                  a(href='home-02.html') Carnes
                 li
-                  a(href='home-03.html') Homepage V3
+                  a(href='home-03.html') Lácteos
+                li
+                  a(href='home-03.html') Frutas y vegetales
+                li
+                  a(href='home-03.html') Panes
+                li
+                  a(href='home-03.html') Bebidas
+                li
+                  a(href='home-03.html') Snacks y dulces
             li
-              a(href='contact.html') Contáctanos
+              a(href='/contactanos') Contáctanos
               
       // Header Icon
       .header-icons
+
   // Header Mobile
   .wrap_header_mobile
     // Logo moblie
@@ -269,11 +285,11 @@ header.header2
               .header-cart-wrapbtn
                 // Button
                 a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='cart.html')
-                  | Ver carrito
+                  | View Cart
               .header-cart-wrapbtn
                 // Button
                 a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
-                  | Compra
+                  | Check Out
       .btn-show-menu-mobile.hamburger.hamburger--squeeze
         span.hamburger-box
           span.hamburger-inner
@@ -295,19 +311,26 @@ header.header2
             a.topbar-social-item.fa.fa-pinterest-p(href='#')
             a.topbar-social-item.fa.fa-snapchat-ghost(href='#')
             a.topbar-social-item.fa.fa-youtube-play(href='#')
+      
         li.item-menu-mobile
-          a(href='index.html') Inicio
-         
+          a(href='/') Inicio
         li.item-menu-mobile
-          a(href='product.html') Productos
-           ul.sub-menu
+          a(href='/productos') Productos
+          ul.sub-menu
             li
-              a(href='index.html') Homepage V1
+              a(href='index.html') Despensa
             li
-              a(href='home-02.html') Homepage V2
+              a(href='home-02.html') Carnes
             li
-              a(href='home-03.html') Homepage V3
+              a(href='home-03.html') Lácteos
+            li
+              a(href='home-03.html') Frutas y vegetales
+            li
+              a(href='home-03.html') Panes
+            li
+              a(href='home-03.html') Bebidas
+            li
+              a(href='home-03.html') Snacks y dulces
           i.arrow-main-menu.fa.fa-angle-right(aria-hidden='true')
-          
         li.item-menu-mobile
           a(href='contact.html') Contáctanos

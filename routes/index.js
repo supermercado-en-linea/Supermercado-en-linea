@@ -14,6 +14,8 @@ module.exports = function () {
     router.get('/', indexController.paginaPrincipal);
 
     router.get('/productos', indexController.productos);
+
+    router.get('/contactanos', indexController.contacto);
     
     
     return router;
