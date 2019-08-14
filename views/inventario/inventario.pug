@@ -1,0 +1,138 @@
+doctype html
+html(lang='es')
+  head
+    title Inventario
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    //- link(href='https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900', rel='stylesheet')
+    //- link(rel='stylesheet', href='/css/open-iconic-bootstrap.min.css')
+    //- link(rel='stylesheet', href='/css/animate.css')
+    //- link(rel='stylesheet', href='/css/owl.carousel.min.css')
+    //- link(rel='stylesheet', href='/css/owl.theme.default.min.css')
+    //- link(rel='stylesheet', href='/css/magnific-popup.css')
+    //- link(rel='stylesheet', href='/css/aos.css')
+    //- link(rel='stylesheet', href='/css/ionicons.min.css')
+    //- link(rel='stylesheet', href='/css/bootstrap-datepicker.css')
+    //- link(rel='stylesheet', href='/css/jquery.timepicker.css')
+    //- link(rel='stylesheet', href='/css/flaticon.css')
+    //- link(rel='stylesheet', href='/css/icomoon.css')
+    //- link(rel='stylesheet', href='/css/style.css')
+    //- link(rel="stylesheet", href='/css/articulos.css')
+    //- link(href='/css/font-face.css' rel='stylesheet' media='all')
+    //- link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.4.0/gridstack.min.css')
+    //- link(href='/css/theme.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/animsition/animsition.min.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/wow/animate.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/css-hamburgers/hamburgers.min.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/slick/slick.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/select2/select2.min.css' rel='stylesheet' media='all')
+    //- link(href='/vendor/perfect-scrollbar/perfect-scrollbar.css' rel='stylesheet' media='all')
+
+
+    //- script(src='/js/ckeditor.js')
+  body
+    nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
+      .container
+        a.navbar-brand(href='index.html')
+          | Tienda
+          span Online
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#ftco-nav', aria-controls='ftco-nav', aria-expanded='false', aria-label='Toggle navigation')
+          span.oi.oi-menu
+          |  Menú
+        #ftco-nav.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='/') Inicio          
+              li.nav-item
+                a.nav-link(href='/inventario/verInventario') Inventarios
+              li.nav-item
+                a.nav-link(href='/inventario/crearInventario') Crear Inventario
+              li.nav-item
+                a.nav-link(href='/logout') Cerrar sesión
+        form.form-header(action='' method='POST')
+          input.au-input.au-input--xl(type='text' name='search' placeholder='Buscar...')
+          button.au-btn--submit(type='submit')
+            i.zmdi.zmdi-search
+        .header-button
+          .noti-wrap
+            .noti__item.js-item-menu
+              i.zmdi.zmdi-shopping-cart
+              span#cant.quantity
+              .notifi-dropdown.js-dropdown
+                .notifi__footer
+                  a(href='/inventario/carrito') Ir al carrito                   
+    // END nav
+    .hero
+    aside.menu-sidebar.d-none.d-lg-block
+    .logo
+      a.logo(href='/administracion')
+        h3 Hola
+    .menu-sidebar__content.js-scrollbar1
+      nav.navbar-sidebar
+        ul.list-unstyled.navbar__list
+          li.has-sub
+            a.js-arrow(href='/administracion')
+              i.fas.fa-tachometer-alt
+                | Principal
+          li
+            a.nav-link(href='/inventario/carrito')
+              i.fas.fa-shopping-cart
+                | Carrito
+  
+      
+    section.ftco-section.ftco-no-pt.ftco-no-pb.ftco-volunteer
+      .container
+        .row
+                      
+    section.services-section.py-5.py-md-0.bg-light
+      .container
+        block contenido
+                    
+              
+    footer.ftco-footer.ftco-section
+      .container
+        
+          .col-md-12.text-center
+            p
+             
+              | Copyright ©
+              script.
+                document.write(new Date().getFullYear());
+              |  Todos los derechos reservados | Universidad Catolica de Honduras | Negocios Web | 2019
+              
+              #ftco-loader.show.fullscreen
+                svg.circular(width='48px', height='48px')
+                  circle.path-bg(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke='#eeeeee')
+                  circle.path(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke-miterlimit='10', stroke='#F96D00')
+              //- script(src='/js/jquery.min.js')
+              //- script(src='/js/jquery-migrate-3.0.1.min.js')
+              //- script(src='/js/popper.min.js')
+              //- script(src='/js/bootstrap.min.js')
+              //- script(src='/js/jquery.easing.1.3.js')
+              //- script(src='/js/jquery.waypoints.min.js')
+              //- script(src='/js/jquery.stellar.min.js')
+              //- script(src='/js/owl.carousel.min.js')
+              //- script(src='/js/jquery.magnific-popup.min.js')
+              //- script(src='/js/aos.js')
+              //- script(src='/js/jquery.animateNumber.min.js')
+              //- script(src='/js/scrollax.min.js')
+              
+              //- script(src='/js/main.js')
+              //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.4.0/gridstack.min.js')
+              //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.4.0/gridstack.jQueryUI.min.js')
+
+
+  //- script(src='/vendor/bootstrap-4.1/popper.min.js')
+  //- script(src='/vendor/bootstrap-4.1/bootstrap.min.js')
+
+  //- script(src='/vendor/slick/slick.min.js')
+  //- script(src='/vendor/wow/wow.min.js')
+  //- script(src='/vendor/animsition/animsition.min.js')
+  //- script(src='/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')
+  //- script(src='/vendor/counter-up/jquery.waypoints.min.js')
+  //- script(src='/vendor/counter-up/jquery.counterup.min.js')
+  //- script(src='/vendor/circle-progress/circle-progress.min.js')
+  //- script(src='/vendor/perfect-scrollbar/perfect-scrollbar.js')
+  //- script(src='/vendor/chartjs/Chart.bundle.min.js')
+  //- script(src='/vendor/select2/select2.min.js')

@@ -1,0 +1,23 @@
+extends ../formularios
+
+block contenido2  
+  section
+    .wrap_menu
+        nav.menu
+        ul.main_menu
+            li
+            a(href='/') Inicio
+            li
+            a(href='/productos') Productos
+
+            ul.sub_menu
+                li
+                a(href='#') Despensa
+                li
+                a(href='/formularios/inventario/crearInventario/') Crear Inventario
+                li
+                a(href='/formularios/inventario/mostrarInventario/') Mostrar Inventario
+                li
+                a(href='/formularios/categoria/crearCategoria/') Crear Categoria
+                li
+                a(href='/formularios/categoria/verCategoria/') Mostrar Categorias

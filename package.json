@@ -4,7 +4,7 @@
   "description": "Proyecto de supermercado en linea",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -17,19 +17,33 @@
   },
   "homepage": "https://github.com/supermercado-en-linea/Supermercado-en-linea#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "ckeditor": "^4.12.1",
     "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^6.0.0",
+    "core-util-is": "^1.0.2",
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
     "express-messages": "^1.0.1",
     "express-session": "^1.16.2",
     "express-validator": "^6.0.1",
+    "gridstack": "^0.4.0",
+    "html-to-text": "^5.1.1",
     "html2pug": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "juice": "^5.2.0",
     "mysql2": "^1.6.5",
+    "nodemailer": "^6.3.0",
     "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-facebook-token": "^3.3.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-plus-token": "^2.1.0",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "pug": "^2.0.4",
-    "sequelize": "^5.9.2",
+    "sequelize": "^5.10.2",
     "shortid": "^2.2.14",
     "slug": "^1.1.0"
   },

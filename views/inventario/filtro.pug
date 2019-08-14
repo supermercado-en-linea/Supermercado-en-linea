@@ -1,0 +1,21 @@
+include ../productos
+
+block contenido
+
+    .lista-productos.contenedo
+        if (inventarios)
+            each inventario in inventarios
+              .producto
+                if (inventario.idInventario==1)
+                  img(src=('/img/vino.png') alt='producto')
+                  .contenido-producto
+                    p.titulo #{inventario.nombre}
+                    p.precio #{inventario.precioVenta}
+                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                else
+                  img(src=inventario.foto alt='producto')
+                  .contenido-producto
+                    p.titulo #{inventario.nombre}
+                    p.precio #{inventario.precioVenta}
+                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+   

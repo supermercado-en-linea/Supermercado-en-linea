@@ -1,0 +1,22 @@
+extends ./inventario
+ 
+block contenido
+    
+    .section__content.section__content--p30
+        .container-fluid
+            .row
+                .col-md-12
+                    .card
+                        .card-header
+                            i.mr-2.fa.fa-align-justify
+                            strong.card-title(v-if='headerText') Carrito
+                        .card-body
+                            .table-responsive.m-b-40
+                                table#carrito.table.table-borderless.table-data3
+                                    thead
+                                        tr
+                                            th Descripción
+                                            th Cantidad
+                                            th Precio Unitario
+                                            th Precio Total
+                                    tbody

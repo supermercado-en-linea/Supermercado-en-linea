@@ -1,0 +1,13 @@
+extends ../formularios
+
+block contenido2
+  section
+    if (categorias)
+      each categoria in categorias
+        form.bg-light.p-5.contact-form(action=`/formularios/categoria/editarCategoria/${categoria.idCategoria}`, method='POST')
+          .form-group
+            h4 Nombre producto
+            input.form-control(name="nombre", type='text', placeholder='Nombre de la categoria', value=`${categoria.nombre}`)
+            h4 Descripción
+            input.form-control(name='descripcion' type='text',placeholder='Descripcion de la categoria' ,value=`${categoria.descripcion}`)  
+            input.btn.btn-primary.py-3.px-5(id="submit" ,type='submit', value='Editar')
