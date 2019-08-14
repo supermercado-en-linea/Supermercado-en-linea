@@ -23,6 +23,7 @@ module.exports = function () {
     
     // Rutas de inventarios
     router.get('/', inventariosController.inventariosHome);
+    
     router.get('/mostrarInventario', inventariosController.inventarioHome2);
     router.get('/crearInventario', inventariosController.crearInventario);
     router.get('/carrito',inventariosController.carrito);

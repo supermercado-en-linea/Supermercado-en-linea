@@ -70,23 +70,23 @@ head
             li
               a(href='#') Despensa
             li
-              a(href='home-02.html') Carnes
+              a(href='#') Carnes
             li
-              a(href='home-03.html') Lácteos
+              a(href='#') Lácteos
             li
-              a(href='home-03.html') Frutas y vegetales
+              a(href='#') Frutas y vegetales
             li
-              a(href='home-03.html') Panes
+              a(href='#') Panes
             li
-              a(href='home-03.html') Bebidas
+              a(href='#') Bebidas
             li
-              a(href='home-03.html') Snacks y dulces
+              a(href='#') Snacks y dulces
         li
           a(href='/contactanos') Contáctanos
 
   // Header Icon al avanzar hacia abajo
   .header-icons
-    a.header-wrapicon1.dis-block(href='#')
+    a.header-wrapicon1.dis-block(href='/user/iniciar_sesion')
       // carrito
       img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
 
@@ -129,7 +129,7 @@ head
               | Ver Carrito
           .header-cart-wrapbtn
             // Button
-            a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
+            a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='/factura')
               | Comprar
   // Fin header Icon
 // Fin header fixed 
@@ -137,7 +137,7 @@ head
 // top noti
 .flex-c-m.size22.bg0.s-text21.pos-relative
   | APROVECHA! 20% de descuento 
-  a.s-text22.hov6.p-l-5(href='product.html')
+  a.s-text22.hov6.p-l-5(href='/factura')
     | Comprar
   button.flex-c-m.pos2.size23.colorwhite.eff3.trans-0-4.btn-romove-top-noti
     i.fa.fa-remove.fs-13(aria-hidden='true')
@@ -165,12 +165,12 @@ header.header2
             option OTRA
         span.linedivide1
         // 
-        p nadaaaa
-        // usuario
-        if user
-          p Bienvenido #{user.name}
+        if usuario
+          p Bienvenido #{usuario.email}
+        else
+          p Bienvenido Invitado
 
-        a.header-wrapicon1.dis-block.m-l-30(href='#')
+        a.header-wrapicon1.dis-block.m-l-30(href='/user/iniciar_sesion')
           img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
         span.linedivide1
         .header-wrapicon2.m-r-13
@@ -205,7 +205,7 @@ header.header2
                   | Ver carrito
               .header-cart-wrapbtn
                 // Button
-                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='/factura')
                   | Comprar
     .wrap_header
       // Menu
@@ -218,19 +218,19 @@ header.header2
               a(href='/productos') Productos
               ul.sub_menu
                 li
-                  a(href='index.html') Despensa
+                  a(href='/') Despensa
                 li
-                  a(href='home-02.html') Carnes
+                  a(href='/') Carnes
                 li
-                  a(href='home-03.html') Lácteos
+                  a(href='/') Lácteos
                 li
-                  a(href='home-03.html') Frutas y vegetales
+                  a(href='/') Frutas y vegetales
                 li
-                  a(href='home-03.html') Panes
+                  a(href='/') Panes
                 li
-                  a(href='home-03.html') Bebidas
+                  a(href='/') Bebidas
                 li
-                  a(href='home-03.html') Snacks y dulces
+                  a(href='/') Snacks y dulces
             li
               a(href='/contactanos') Contáctanos
               
@@ -246,7 +246,7 @@ header.header2
     .btn-show-menu
       // Header Icon mobile
       .header-icons-mobile
-        a.header-wrapicon1.dis-block(href='#')
+        a.header-wrapicon1.dis-block(href='/user/iniciar_sesion')
           img.header-icon1(src='images/icons/icon-header-01.png' alt='ICON')
         span.linedivide2
         .header-wrapicon2
@@ -280,7 +280,7 @@ header.header2
                   | Ver carrito
               .header-cart-wrapbtn
                 // Button
-                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='#')
+                a.flex-c-m.size1.bg1.bo-rad-20.hov1.s-text1.trans-0-4(href='/factura')
                   | Comprar
       .btn-show-menu-mobile.hamburger.hamburger--squeeze
         span.hamburger-box
