@@ -1,34 +1,6 @@
 extends ./inventario
  
 block contenido
-    //- if (inventarios)
-    //-     .grid-stack
-    //-         each inventario in inventarios 
-    //-             .grid-stack-item(data-gs-x='0' data-gs-y='0' data-gs-width='4' data-gs-height='2')
-    //-                 .grid-stack-item-content
-    //-                     a.articulosText(href=`/inventario/${inventario.url}`) #{inventario.nombre}
-    //-                     h2.text-warning #{inventario.precioVenta}
-    //- script(type='text/javascript').
-    //-     $(function () {
-    //-         var options = {cellHeight: 80, verticalMargin: 10};
-    //-         $('.grid-stack').gridstack(options);
-    //-     });
-     
-    script.
-        function agregarItem(external) {
-         var url = 'http://localhost:9999/agregar' + external;
-         $.ajax({
-             url: url,
-                type: 'GET',
-             dataType: 'json',
-                success: function (data, textStatus, jqXHR) {
-                 refrescar();
-                }, error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(jqXHR);
-             }
-            });
-            return false;
-        }
 
     .section__content.section__content--p30
         .container-fluid
@@ -51,7 +23,7 @@ block contenido
                                                     p 
                                                         b | $ Precio:#{inventario.precioVenta} 
                                                         b | Quedan: #{inventario.stock}
-                                                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                                                    //- a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
                                         else
                                             .carousel-item.slide
                                                 img.d-block(src= inventario.foto )
@@ -60,7 +32,7 @@ block contenido
                                                     p 
                                                         b | $ Precio:#{inventario.precioVenta} 
                                                         b | Quedan: #{inventario.stock}
-                                                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                                                    //- a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
                             a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
                                 span.carousel-control-prev-icon(aria-hidden='true')
                                 span.sr-only Anterior
@@ -68,6 +40,7 @@ block contenido
                                 span.carousel-control-next-icon(aria-hidden='true')
                                 span.sr-only Siguiente
     .lista-productos.contenedo
+
         if (inventarios)
             each inventario in inventarios
                 .producto
@@ -75,4 +48,6 @@ block contenido
                     .contenido-producto
                         p.titulo #{inventario.nombre}
                         p.precio #{inventario.precioVenta}
-                        a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                        a.btn.btn-warning(href=`/carrito/anadir_carrito/${inventario.idInventario}`) Añadir al carrito
+
+    

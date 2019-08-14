@@ -1,6 +1,6 @@
 // Importar los modelos
-const factura = require('../models/factura');
-const productoCarrito = require('../models/productosCarrito');
+const carrito = require('../models/carrito');
+const productoCarrito = require('../models/productoCarrito');
 const Inventario = require('../models/Inventario');
 const Categoria = require('../models/Categoria');
 
@@ -19,38 +19,27 @@ exports.crearCarrito = async (cliente,nombre,precio,cantidad,total) => {
     const total = total;
     let errores = [];
 
-    // Verificar si el nombre del proyecto tiene un valor
-    if (!idCliente && !estado && !numeroProductos && !total) {
-        errores.push({'texto': 'El nombre del proyecto no puede ser vacío.'});
-    }
 
-    // Si hay errores
-   
-        if (errores.length > 0) {
-            console.log(errores)
-            res.render('inventario/verInventario');
-        }else{
-            let newArticle = new Carrito({
+
+            let newCarrito = new carrito({
                         idCliente:idCliente,
                         estado:estado,
                         numeroProductos:numeroProductos,
                         total:total
             });
     
-            await Carrito.create({idCliente: newArticle.idCliente, estado: newArticle.estado, numeroProductos: newArticle.numeroProductos, total: newArticle.total});
+            await carrito.create({idCliente: 1, estado: "1", numeroProductos: 1, total: 123});
+            crearProductoCarrito(nombre, precio, cantidad);
             //res.redirect('verInventario');
-            if()
-        }
-};
+            
+}
+
 exports.carrito = async (req, res) => {
     // Obtener todos los proyectos
     // const inventario = await inventario.findAll(); 
     res.render('inventario/carrito');
-}; 
-exports.crearCarrito = async (req, res)=>{
-    const categoriaPromise = Categoria.findAll();
-
-    const [categorias] = await Promise.all([categoriaPromise]).then();
-    res.render('inventario/crearCarrito',{categorias});
 };
 
+async function crearProductoCarrito(nombre, precio, cantidad){
+
+}
