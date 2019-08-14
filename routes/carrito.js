@@ -17,6 +17,7 @@ const carritosController = require('../controllers/carritoController');
 
 module.exports = function () {
     // Rutas de carritos
+    router.get('/', carritosController.verCarrito);
     router.get('/anadir_carrito/:id', carritosController.crearCarrito);
 
     return router;

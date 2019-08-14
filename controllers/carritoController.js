@@ -20,3 +20,8 @@ exports.crearCarrito = async (req, res) => {
         
     }
 };
+
+
+exports.verCarrito = async (req, res) => {
+   res.render('carrito')
+};

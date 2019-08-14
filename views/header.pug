@@ -88,7 +88,10 @@ head
     span.linedivide1
     .header-wrapicon2
       img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
-      span.header-icons-noti 0
+      if (!session.cart)
+        span.header-icons-noti 0
+      else
+        span.header-icons-noti #{session.cart.totalQty}
 
       // Header CARRITO
       .header-cart.header-dropdown
@@ -168,7 +171,10 @@ header.header2
         .header-wrapicon2.m-r-13
           img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
           // Parte del case
-          span.header-icons-noti 10
+          if (!session.cart)
+            span.header-icons-noti 0
+          else
+            span.header-icons-noti #{session.cart.totalQty}
           // Header cart noti
           .header-cart.header-dropdown
             ul.header-cart-wrapitem
@@ -251,7 +257,10 @@ header.header2
         span.linedivide2
         .header-wrapicon2
           img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
-          span.header-icons-noti 0
+          if (!session.cart)
+            span.header-icons-noti 0
+          else
+            span.header-icons-noti #{session.cart.totalQty}
           // Header cart noti
           .header-cart.header-dropdown
             ul.header-cart-wrapitem
