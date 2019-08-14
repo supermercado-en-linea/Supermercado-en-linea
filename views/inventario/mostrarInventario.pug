@@ -7,17 +7,17 @@ block contenido2
             if (inventarios)
                 each inventario in inventarios
                     .col-md-3
-                    .card.text-center
-                        .card-body
-                        a(target='_blank')
-                            h3.card-title.text-uppercase #{inventario.nombre}
-                        p.m-2 #{inventario.descripcion}
-                        p.m-2 #{inventario.precioVenta}
-                        p.m-2 #{inventario.stock}
-                        a.btn.btn-danger(href=`eliminarInventario/${inventario.idInventario}`)
-                            | Eliminar Inventario
-                        a.btn.btn-secondary(href=`editarInventario/${inventario.idInventario}`)
-                            | Editar Inventario
+                        .card.text-center
+                            .card-body
+                            a(target='_blank')
+                                h3.card-title.text-uppercase #{inventario.nombre}
+                            p.m-2 #{inventario.descripcion}
+                            p.m-2 #{inventario.precioVenta}
+                                p.m-2 #{inventario.stock}
+                            a.btn.btn-danger(href=`eliminarInventario/${inventario.idInventario}`)
+                                | Eliminar Inventario
+                            a.btn.btn-secondary(href=`editarInventario/${inventario.idInventario}`)
+                                | Editar Inventario
             else
                 .col-md-4.mx-auto
                     .card.card-body.text-center

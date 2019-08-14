@@ -35,15 +35,27 @@ exports.inventarioHome2 = async(req, res) =>{
    res.render('inventario/mostrarInventario',{inventarios});
 
 }
+exports.ver =async(req,res)=>{
+    
+    res.redirect('/productos/'+req.params.url);
+
+}
 
 exports.nuevoInventario = async (req, res) => {
-    
+    console.log(req.body.categoria1);
+    const categoria = await Categoria.findOne({
+        where : {
+            idCategoria : req.body.categoria1
+        }
+    });
+
+    const idCategoria =  categoria.idCategoria;
     const nombre = req.body.nombre;
     const content = req.body.content;
     const costo = req.body.costo;
     const precio = req.body.precio;
     const cantidad = req.body.stock;
-    const idCategoria = req.body.categoria1;
+    //const idCategoria = req.body.categoria1;
     //const Inventario = 
    
     let errores = [];
@@ -62,10 +74,10 @@ exports.nuevoInventario = async (req, res) => {
                     costoUnitario:costo,
                     precioVenta: precio,
                     stock: cantidad,
-                    IdCategoria:idCategoria
+                    categoriainventarioIdCategoria:idCategoria
         });
 
-        await Inventario.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion, costoUnitario: newArticle.costoUnitario, precioVenta: newArticle.precioVenta,stock:newArticle.stock,categoriainventarioIdCategoria:newArticle.IdCategoria});
+        await Inventario.create({nombre: newArticle.nombre, descripcion: newArticle.descripcion, costoUnitario: newArticle.costoUnitario, precioVenta: newArticle.precioVenta,stock:newArticle.stock,categoriainventarioIdCategoria:newArticle.categoriainventarioIdCategoria});
         res.redirect('mostrarInventario');
     }
 }
@@ -128,16 +140,24 @@ exports.editarInventario = async (req, res,next) => {
 }
  exports.ModificarInventario=async(req,res)=>{
     //const { id } = req.locals.inventario.idInventario;
+    console.log(req.body.categoriainventarioIdCategoria);
+    const categoria = await Categoria.findOne({
+        where : {
+            idCategoria : req.body.categoriainventarioIdCategoria
+        }
+    });
+
+    const categoriainventarioIdCategoria =  categoria.idCategoria;
     const { id } = req.params;
 
     //const inventarios = await Inventario.findAll({where:{idInventario:id}});
-    const { nombre, content, costo,precio,stock } = req.body;
+    const { nombre, descripcion, costoUnitario,precioVenta,stock } = req.body;
 
 
     let errores = [];
 
     // Verificar si el nombre del proyecto tiene un valor
-    if (!nombre && !content && !costo && !precio && !stock  ) {
+    if (!nombre && !descripcion && !costoUnitario && !precioVenta && !stock && !categoriainventarioIdCategoria ) {
         errores.push({'texto': 'El nombre del proyecto no puede ser vacío.'});
     }
 
@@ -148,7 +168,7 @@ exports.editarInventario = async (req, res,next) => {
         // No existen errores
         // Inserción en la base de datos.
         await Inventario.update(
-            { nombre ,content,costo,precio,stock},
+            { nombre,descripcion,costoUnitario,precioVenta,stock,categoriainventarioIdCategoria},
             { where : {
                 idInventario : id
             }}

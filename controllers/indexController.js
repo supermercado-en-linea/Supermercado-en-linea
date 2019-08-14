@@ -3,6 +3,7 @@
 const Inventario = require('../models/Inventario');
 var Cart = require('../models/cart')
 
+
 exports.paginaPrincipal =  async(req, res) => {
     if(!req.session.cart){
         return res.render('index',{
@@ -24,6 +25,11 @@ exports.productos =  async(req, res) => {
 
     const [inventarios] = await Promise.all([inventariosPromise]).then();
 
+    const categoriasPromise = Categoria.findAll();
+
+    const [categorias] = await Promise.all([categoriasPromise]).then();
+
+
     if(!req.session.cart){
         return res.render('productos',{
             inventarios,
@@ -36,9 +42,11 @@ exports.productos =  async(req, res) => {
             inventarios,
             products: cart.generateArray(),
             totalPrice: cart.totalPrice.toFixed(2),
-            nombrePagina : 'Productos'
+            nombrePagina : 'Productos',
+            categorias
         })
     }
+
 };
 
 exports.formulario= async(req,res)=>{
@@ -62,3 +70,4 @@ exports.contacto =  async(req, res) => {
         })
     }
 };
+
