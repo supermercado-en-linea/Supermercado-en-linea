@@ -70,7 +70,7 @@ section.bgwhite.p-t-55.p-b-65
                           each inventario in inventarios
                             if (inventario.idInventario==1)
                               .carousel-item.active.slide
-                                img.d-block(src='/img/vino.png' alt='#{inventario.nombre} ')
+                                img.d-block(src=inventario.foto alt='#{inventario.nombre} ')
                                 .carousel-caption.d-none.d-md-block.texts(id=`${inventario.idInventario}`)
                                   h5.text-white #{inventario.nombre}
                                     p.text-white 

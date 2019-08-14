@@ -24,6 +24,7 @@ module.exports = function () {
 
     // Iniciar sesión
     router.get('/iniciar_sesion', usuariosController.formularioIniciarSesion);
+    router.get('/cerrar_sesion', authController.cerrarSesion);
     router.post('/iniciar_sesion', authController.autenticarUsuario);
 
     // router.route('/auth/google')

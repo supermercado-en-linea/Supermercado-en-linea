@@ -77,7 +77,7 @@ exports.contacto =  async(req, res) => {
 exports.ver =  async(req, res) => {
     const inventariosPromise = Inventario.findAll({        
         where: {
-            categoriainventarioIidCategoria: req.params.url
+            categoriainventarioIdCategoria: req.params.url
         }
     });
 
@@ -92,7 +92,8 @@ exports.ver =  async(req, res) => {
         return res.render('productos',{
             inventarios,
             products: null,
-            nombrePagina : 'Productos'
+            nombrePagina : 'Productos',
+            categorias
         })
     }else{
         var cart = new Cart(req.session.cart);
