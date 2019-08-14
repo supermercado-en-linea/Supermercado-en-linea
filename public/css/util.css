@@ -12,7 +12,7 @@
 .fs-9 {font-size: 9px;}
 .fs-10 {font-size: 10px;}
 .fs-11 {font-size: 11px;}
-.fs-12 {font-size: 12px;}
+.fs-12 {font-size: 25px;}
 .fs-13 {font-size: 13px;}
 .fs-14 {font-size: 14px;}
 .fs-15 {font-size: 15px;}
@@ -3000,18 +3000,6 @@
 	bottom: 0px;
 }
 
-
-
-
-
-
-
-
-
-/*=========================================================
-TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-=========================================================*/
-
 /*[ S-Text 0 - 15 ]
 ///////////////////////////////////////////////////////////
 */
@@ -3102,12 +3090,14 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .s-text13 {
-	font-family: Montserrat-Regular;
+	font-family: Montserrat-bold;
 	font-size: 15px;
-	color: #888888;
+	color: #CF3721;
 	line-height: 1.8;
 }
-
+.s-text13:hover {
+	color: #258039;
+}
 .s-text14 {
 	font-family: Montserrat-Regular;
 	font-size: 13px;
@@ -3373,8 +3363,9 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	letter-spacing: 2px;
 }
 
+
 /*[ L-Text 31 - 50 ]
-///////////////////////////////////////////////////////////
+
 */
 .l-text1 {
 	font-family: Montserrat-Bold;
@@ -3766,7 +3757,8 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 }
 
 .bo4 {
-	border: 1px solid #e6e6e6;
+	width: 500px;
+	border: 1px solid #258039;
 	border-radius: 2px;
 }
 
@@ -3901,7 +3893,7 @@ EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
 }
 
 /*[ Position ]
-///////////////////////////////////////////////////////////
+
 */
 .pos1 {
 	position: absolute;

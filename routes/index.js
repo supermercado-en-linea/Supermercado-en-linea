@@ -17,6 +17,7 @@ module.exports = function () {
 
     router.get('/contactanos', indexController.contacto);
     
+    router.get('/carrito', indexController.carrito);
     
     return router;
 }

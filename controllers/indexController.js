@@ -20,3 +20,10 @@ exports.contacto =  async(req, res) => {
         nombrePagina : 'Contáctanos'
     });
 };
+
+exports.carrito =  async(req, res) => {
+    res.render('carrito',{
+
+        nombrePagina : 'Tu carrito'
+    });
+};
