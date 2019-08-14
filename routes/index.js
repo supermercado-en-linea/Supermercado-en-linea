@@ -14,7 +14,10 @@ module.exports = function () {
     router.get('/', indexController.paginaPrincipal);
 
     router.get('/productos', indexController.productos);
+
+    router.get('/contactanos', indexController.contacto);
     
+    router.get('/carrito', indexController.carrito);
     
     return router;
 }
