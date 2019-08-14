@@ -1,3 +1,4 @@
+
 include ./header.pug
 
 // Title Page
@@ -47,9 +48,59 @@ section.bgwhite.p-t-55.p-b-65
               i.fs-12.fa.fa-search(aria-hidden='true')
    
         // Product
-        .row
-          .col-sm-12.col-md-6.col-lg-4.p-b-50
-            
+
+        //.row
+        //.col-sm-12.col-md-6.col-lg-4.p-b-50
+        //block contenido
+        .section__content.section__content--p30
+          .container-fluid
+            .row
+              .col-md-12
+                .card
+                  .card-header
+                    i.mr-2.fa.fa-align-justify
+                    strong.card-title(v-if='headerText') Inventario
+                  .card-body
+                    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+                      .carousel-inner
+                        if (inventarios)
+                          each inventario in inventarios
+                            if (inventario.idInventario==1)
+                              .carousel-item.active.slide
+                                img.d-block(src='/img/vino.png' alt='#{inventario.nombre} ')
+                                .carousel-caption.d-none.d-md-block.texts
+                                  h5.text-white #{inventario.nombre}
+                                    p 
+                                      b | $ Precio:#{inventario.precioVenta} 
+                                      b | Quedan: #{inventario.stock}
+                                      a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                            else
+                              .carousel-item.slide
+                                img.d-block(src= inventario.foto )
+                                .carousel-caption.d-none.d-md-block.texts
+                                  h5.text-white #{inventario.nombre}
+                                  p 
+                                    b | $ Precio:#{inventario.precioVenta} 
+                                    b | Quedan: #{inventario.stock}
+                                  a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                    a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+                        span.carousel-control-prev-icon(aria-hidden='true')
+                        span.sr-only Anterior
+                    a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+                        span.carousel-control-next-icon(aria-hidden='true')
+                        span.sr-only Siguiente
+        .lista-productos.contenedo
+          if (inventarios)
+            each inventario in inventarios
+              .producto
+                img(src=inventario.foto alt='producto')
+                .contenido-producto
+                  p.titulo #{inventario.nombre}
+                  p.precio #{inventario.precioVenta}
+                  a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+
+
+
         // Pagination
         .pagination.flex-m.flex-w.p-t-26
           a.item-pagination.flex-c-m.trans-0-4.active-pagination(href='#') 1

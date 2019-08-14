@@ -20,7 +20,6 @@ const facturaRoute = require("./routes/factura")
 
 
 // Crear la conexión con la Base de Datos
-
 const db = require('./config/db');
 
 // Importar modelos
@@ -79,6 +78,9 @@ app.use('/', indexRoute());
 
 //app.use('/', routes());
 let inventarioRoutes = require('./routes/inventario');
-app.use('/inventario', inventarioRoutes());
+app.use('/formularios/inventario', inventarioRoutes());
+
+let categoriaRoutes = require('./routes/categoria');
+app.use('/formularios/categoria', categoriaRoutes());
 // Inicializar el servidor de express en un puerto
 app.listen(9999);
