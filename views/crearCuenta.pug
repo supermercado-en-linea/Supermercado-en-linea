@@ -7,11 +7,13 @@ html(lang='es')
     // ===============================================================================================
     link(rel='icon', type='image/png', href='/register/images/icons/favicon.ico')
     // ===============================================================================================
+
     link(rel='stylesheet', type='text/css', href='/register/vendor/bootstrap/css/bootstrap.min.css')
     // ===============================================================================================
     link(rel='stylesheet', type='text/css', href='/register/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
     // ===============================================================================================
     link(rel='stylesheet', type='text/css', href='/register/fonts/iconic/css/material-design-iconic-font.min.css')
+
     // ===============================================================================================
     link(rel='stylesheet', type='text/css', href='/register/vendor/animate/animate.css')
     // ===============================================================================================
@@ -23,16 +25,20 @@ html(lang='es')
     // ===============================================================================================
     link(rel='stylesheet', type='text/css', href='/register/vendor/daterangepicker/daterangepicker.css')
     // ===============================================================================================
+
     link(rel='stylesheet', type='text/css', href='/register/css/util.css')
     link(rel='stylesheet', type='text/css', href='/register/css/main.css')
     link(rel="stylesheet", href="https://colorlib.com/etc/regform/colorlib-regform-4/")
+
     // ===============================================================================================
   body
     #fb-root
     script(async='' defer='' crossorigin='anonymous' src='https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v4.0&appId=2417550305197183&autoLogAppEvents=1')
     
     .limiter
+
       .container-login100(style="background-image: url('/register/images/bg_1.jpg');")
+
         .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
           form.login100-form.validate-form(action='/user/crear_cuenta', method='POST')
             span.login100-form-title.p-b-49
@@ -92,7 +98,6 @@ html(lang='es')
                 | ¿Ya estas registrado?
               a.txt2(href='/user/iniciar_sesion' id="hola")
                 | Inicia sesión
-    #dropDownSelect1
     // ===============================================================================================
     script(src='/register/vendor/jquery/jquery-3.2.1.min.js')
     // ===============================================================================================
@@ -109,3 +114,4 @@ html(lang='es')
     script(src='/register/vendor/countdowntime/countdowntime.js')
     // ===============================================================================================
     script(src='/register/js/main.js')
+
