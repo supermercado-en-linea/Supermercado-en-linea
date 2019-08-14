@@ -1,7 +1,5 @@
 extends ./inventario
- 
 block contenido  
-
     .section__content.section__content--p30
         .container-fluid
             .row
@@ -23,7 +21,7 @@ block contenido
                                                     p 
                                                         b | $ Precio:#{inventario.precioVenta} 
                                                         b | Quedan: #{inventario.stock}
-                                                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                                                    //- a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
                                         else
                                             .carousel-item.slide
                                                 img.d-block(src= inventario.foto )
@@ -32,7 +30,7 @@ block contenido
                                                     p 
                                                         b | $ Precio:#{inventario.precioVenta} 
                                                         b | Quedan: #{inventario.stock}
-                                                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                                                    //- a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
                             a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
                                 span.carousel-control-prev-icon(aria-hidden='true')
                                 span.sr-only Anterior
@@ -40,6 +38,7 @@ block contenido
                                 span.carousel-control-next-icon(aria-hidden='true')
                                 span.sr-only Siguiente
     .lista-productos.contenedo
+
         if (inventarios)
             each inventario in inventarios
                 .producto
@@ -47,4 +46,6 @@ block contenido
                     .contenido-producto
                         p.titulo #{inventario.nombre}
                         p.precio #{inventario.precioVenta}
-                        a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                        a.btn.btn-warning(href=`/carrito/anadir_carrito/${inventario.idInventario}`) Añadir al carrito
+
+    

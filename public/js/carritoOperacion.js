@@ -1,14 +1,16 @@
-const CarritoControlador = require("../../controllers/carritoControllers");
+import * as carrito from '../models/carrito';
 
-function AgregarCarrito(cliente,nombre,precio,cantidad,total) {
+async function AgregarCarrito(){
     
-    var IdCliente = cliente;
-    var Nombre = nombre;
-    var Precio = precio;
-    var Cantidad = cantidad;
-    var Total = total;
+    // var IdCliente = cliente;
+    // var Nombre = nombre;
+    // var Precio = precio;
+    // var Cantidad = cantidad;
+    // var Total = total;
     
+    console.log("Holas")
     
-    CarritoControlador.crearCarrito(IdCliente,Nombre,Precio,Cantidad,Total);
-   console.log(IdCliente, Nombre,Precio)
+    await carrito.create({idCliente: 1, estado: "1", numeroProductos: 1, total: 123});
+    
+   
 }
