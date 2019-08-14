@@ -16,12 +16,24 @@ exports.crearCarrito = async (req, res) => {
         cart.add(invent, productId);
         req.session.cart = cart;
         console.log(req.session.cart)
-        res.redirect('/inventario/verInventario')
+        res.redirect('/productos')
         
     }
 };
 
 
 exports.verCarrito = async (req, res) => {
-   res.render('carrito')
+    if(!req.session.cart){
+        return res.render('carrito',{
+            products: null,
+            nombrePagina : 'Tu carrito'
+        })
+    }else{
+        var cart = new Cart(req.session.cart);
+        res.render('carrito',{
+            products: cart.generateArray(),
+            totalPrice: cart.totalPrice.toFixed(2),
+            nombrePagina : 'Tu carrito'
+        })
+    }
 };
