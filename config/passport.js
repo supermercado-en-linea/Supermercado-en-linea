@@ -4,13 +4,39 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-plus-token').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+// const JwtStrategy = require('passport-jwt').Strategy;
+// const { ExtraerJwt } = require('passport-jwt');
 
 //Referenciar el modelo al que se autentica
 const Usuario = require('../models/Usuario');
 const Cliente = require('../models/Cliente');
-const config = require('./config');
-// Importar archivo config.js para los clientId y Secret id
 
+// Importar archivo config.js para los clientId y Secret id
+const config = require('../config');
+
+// Estrategia JSON Web Tokens
+// passport.use(
+//     new JwtStrategy ({
+//         jwtFromRequest : ExtraerJwt.fromHeader('authorization'),
+//         secretOrKey : config.JWT_SECRET
+//     }, async (payload, done) => {
+//         try {
+//             // Buscar Usuario especificado en el token
+//             const user = await Usuario.findById(payload.sub);
+
+//             if(!user) {
+//                 return done(null, false);
+//             }
+
+//             done (null, user);
+//         } catch (error) {
+//             done(error, false);
+//         }
+//     })
+// )
+
+// Importar archivo config.js para los clientId y Secret id
+const config = require('../config');
 
 //Definir estrategia de autenticacion local
 passport.use(
@@ -67,6 +93,7 @@ passport.use('facebook',
         {
             clientID : config.facebook.clientId,
             clientSecret : config.facebook.clientSecret,
+            passReqToCallback : true
         },
         async (accessToken, refreshToken, profile, done) => {
             try
@@ -74,9 +101,46 @@ passport.use('facebook',
                 console.log('profile: ', profile);
                 console.log('accessToken: ', accessToken);
                 console.log('refreshToken: ', refreshToken);
+
+                if (req.Usuario) {
+                    req.Usuario.methods.push('facebook')
+                    req.Usuario.facebook = {
+                        id : profile.id,
+                        email : profile.emails[0].value
+                    }
+                    await req.Usuario.save();
+                    return done(null, req.Usuario);
+                } else {
+                    let usuarioExistente = await Usuario.findOne({ "facebook.id" : profile.id});
+                    if (usuarioExistente) {
+                        return done(null, usuarioExistente);
+                    }
+
+                    usuarioExistente = await Usuario.findOne({ "local.email" : profile.emails[0].value })
+                    if (usuarioExistente) {
+                        usuarioExistente.methods.push('facebook')
+                        usuarioExistente.facebook = {
+                            id : profile.id,
+                            email : profile.emails[0].value
+                        }
+                        await usuarioExistente.save()
+                        return done(null, usuarioExistente);
+                    }
+
+                    const nuevoUsuario = new Usuario({
+                        methods : ['facebook'],
+                        facebook : {
+                            id : profile.id,
+                            email : profile.emails[0].value
+                        }
+                    });
+
+                    await nuevoUsuario.save();
+                    done(null, nuevoUsuario);
+                }
             }
             catch (error) {
-                done (error, false, error.message)
+                done (error, false, error.message);
             }
         }
     )
