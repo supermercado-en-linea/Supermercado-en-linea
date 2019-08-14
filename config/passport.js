@@ -10,6 +10,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 //Referenciar el modelo al que se autentica
 const Usuario = require('../models/Usuario');
 const Cliente = require('../models/Cliente');
+<<<<<<< HEAD
 
 // Importar archivo config.js para los clientId y Secret id
 const config = require('../config');
@@ -34,7 +35,11 @@ const config = require('../config');
 //         }
 //     })
 // )
+=======
+>>>>>>> 511256a7ff31463a29c4d8848a59de8a6d567339
 
+// Importar archivo config.js para los clientId y Secret id
+const config = require('../config');
 
 //Definir estrategia de autenticacion local
 passport.use(
