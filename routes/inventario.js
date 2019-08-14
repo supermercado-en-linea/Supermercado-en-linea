@@ -23,10 +23,14 @@ module.exports = function () {
     
     // Rutas de inventarios
     router.get('/', inventariosController.inventariosHome);
-    router.get('/verInventario', inventariosController.inventarioHome2);
+    router.get('/mostrarInventario', inventariosController.inventarioHome2);
     router.get('/crearInventario', inventariosController.crearInventario);
     router.get('/carrito',inventariosController.carrito);
     router.post('/crearInventario',  body('content').not().isEmpty(), body('nombre').not().isEmpty(),inventariosController.nuevoInventario);
+    router.get('/editarInventario/:id',inventariosController.editarInventario);
+    router.post('/editarInventario/:id',inventariosController.ModificarInventario);
+    router.get('/eliminarInventario/:id',inventariosController.eliminarInventario);
+    
     //router.get('/inventario/:url', inventariosController.inventarioPorUrl);
 
     return router;

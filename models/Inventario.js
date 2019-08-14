@@ -6,6 +6,8 @@ const db = require('../config/db');
 const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
+const Categoria = require('./Categoria');
+
 
 // Definición del modelo (Model)
 const Inventario = db.define('inventario', {
@@ -52,6 +54,7 @@ const Inventario = db.define('inventario', {
     }
 });
 
+Inventario.belongsTo(Categoria);
 
 
 // Importar el modelo para poder utilizarlo

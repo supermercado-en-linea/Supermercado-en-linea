@@ -141,9 +141,3 @@ exports.editarCategoria = async (req, res) => {
        
     }
  }
-/* router.get('/', isLoggedIn,async (req, res) => {
-    
-    const articles = await pool.query('SELECT * FROM articulos WHERE idUsuario = ?', [req.user.id]);
-    res.render('articles/list', { articles});
-
-}); */
