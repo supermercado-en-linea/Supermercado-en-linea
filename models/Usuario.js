@@ -52,7 +52,7 @@ const Usuario = db.define('usuario', {
     }
 });
 
-// Usuario.belongsTo(Cliente);
+Usuario.belongsTo(Cliente);
 
 Usuario.prototype.verificarPassword = function (password) {
     return bcrypt.compareSync(password, this.password);

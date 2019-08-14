@@ -36,17 +36,17 @@ exports.crearCuenta = async(req, res, next) => {
             Direccion,
             email
         })
-        const clienteId = Client.findOne({
-            attributes : ['id'],
+        const clienteId = await Client.findOne({
+            
             where: {
-                email 
+                email
             }
         })
-        console.log('----------', clienteId, '-----------------');
+        console.log(clienteId);
         await Usuario.create({
-            email,
-            password,
-            clienteId
+            email : email,
+            password : password,
+            clienteId : clienteId.id
         })
         .then(() => {
             res.redirect('/user/iniciar_sesion');
