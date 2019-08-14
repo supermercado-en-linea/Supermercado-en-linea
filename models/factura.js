@@ -17,32 +17,32 @@ const Factura = db.define('factura', {
         autoIncrement: true
     },
     subTotal : {
-        type: Sequelize.STRING(8000)
+        type: Sequelize.FLOAT
     },
     isv : {
-        type: Sequelize.STRING(8000)
+        type: Sequelize.FLOAT
+    },
+    estado: {
+        type: Sequelize.INTEGER
     },
     total : {
-        type: Sequelize.STRING(8000)
+        type: Sequelize.FLOAT
     },
     fecha : {
-        type: Sequelize.STRING(8000)
+        type: Sequelize.DATE(6),
+        defaultValue: Sequelize.NOW
     },
     url : Sequelize.STRING
 }, {
     hooks : {
         beforeCreate(Factura) {
             console.log('Antes de insertar en la base de datos');
-            const url = slug(Factura.nombre).toLowerCase();
-
-            inventario.url = `${url}-${shortid.generate()}`;
+            Factura.url = `${shortid.generate()}`;
         },
 
         beforeUpdate(Factura) {
             console.log('Antes de actualizar en la base de datos');
-            const url = slug(Factura.nombre).toLowerCase();
-
-            Factura.url = `${url}-${shortid.generate()}`;
+            Factura.url = `${shortid.generate()}`;
         }
     }
 });

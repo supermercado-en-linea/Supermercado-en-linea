@@ -23,17 +23,20 @@ section.cart.bgwhite.p-t-70.p-b-100
             each producto in products
               tr.table-row
               td.column-1
-                .cart-img-product.b-rad-4.o-f-hidden
-                  img(src='/img/vino.png' alt='IMG-PRODUCT')
+                a(href=`/carrito/quitar_producto/${producto.item.idInventario}`)
+                  .cart-img-product.b-rad-4.o-f-hidden
+                    img( src='/img/vino.png' alt='IMG-PRODUCT')
               td.column-2 #{producto.item.nombre}
               td.column-3 L #{producto.item.precioVenta}
               td.column-4
                 .flex-w.bo5.of-hidden.w-size17
                   button.btn-num-product-down.color1.flex-c-m.size7.bg8.eff2
-                    i.fs-12.fa.fa-minus(aria-hidden='true')
+                    a(href=`/carrito/quitar_uno/${producto.item.idInventario}`)
+                      i.fs-12.fa.fa-minus(aria-hidden='true')
                   input.size8.m-text18.t-center.num-product(type='number' name='num-product1' value=`${producto.qty}`)
                   button.btn-num-product-up.color1.flex-c-m.size7.bg8.eff2
-                    i.fs-12.fa.fa-plus(aria-hidden='true')
+                    a(href=`/carrito/anadir_carrito/${producto.item.idInventario}`)
+                      i.fs-12.fa.fa-plus(aria-hidden='true')
               td.column-5 L #{producto.price}
           else
 
@@ -50,7 +53,14 @@ section.cart.bgwhite.p-t-70.p-b-100
         span.s-text18.w-size19.w-full-sm
           | Subtotal:
         span.m-text21.w-size20.w-full-sm
-          | L #{totalPrice}
+          | L #{subtotal}
+      .flex-w.flex-sb-m.p-b-12
+        span.s-text18.w-size19.w-full-sm
+          | Impuesto:
+        span.m-text21.w-size20.w-full-sm
+          | L #{impuesto}
+        
+        
       // 
       //- .flex-w.flex-sb.bo10.p-t-15.p-b-20
       //-   span.s-text18.w-size19.w-full-sm
@@ -80,9 +90,10 @@ section.cart.bgwhite.p-t-70.p-b-100
           | Total:
         span.m-text21.w-size20.w-full-sm
           | L #{totalPrice}
-      .size15.trans-0-4
-        // Button
-        button.flex-c-m.sizefull.bg1.bo-rad-23.hov1.s-text1.trans-0-4
-          | Proceed to Checkout
+      a(href="/factura")
+        .size15.trans-0-4
+          // Button
+          button.flex-c-m.sizefull.bg1.bo-rad-23.hov1.s-text1.trans-0-4
+            | Proceed to Checkout
 // Footer
 include ./footer

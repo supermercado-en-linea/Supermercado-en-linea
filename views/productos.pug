@@ -68,7 +68,7 @@ section.bgwhite.p-t-55.p-b-65
                             if (inventario.idInventario==1)
                               .carousel-item.active.slide
                                 img.d-block(src='/img/vino.png' alt='#{inventario.nombre} ')
-                                .carousel-caption.d-none.d-md-block.texts
+                                .carousel-caption.d-none.d-md-block.texts(id=`${inventario.idInventario}`)
                                   h5.text-white #{inventario.nombre}
                                     p 
                                       b | $ Precio:#{inventario.precioVenta} 
@@ -77,7 +77,7 @@ section.bgwhite.p-t-55.p-b-65
                             else
                               .carousel-item.slide
                                 img.d-block(src= inventario.foto )
-                                .carousel-caption.d-none.d-md-block.texts
+                                .carousel-caption.d-none.d-md-block.texts(id=`${inventario.idInventario}`)
                                   h5.text-white #{inventario.nombre}
                                   p 
                                     b | $ Precio:#{inventario.precioVenta} 
@@ -94,7 +94,7 @@ section.bgwhite.p-t-55.p-b-65
             each inventario in inventarios
               .producto
                 img(src=inventario.foto alt='producto')
-                .contenido-producto
+                .contenido-producto(id=`${inventario.idInventario}`)
                   p.titulo #{inventario.nombre}
                   p.precio #{inventario.precioVenta}
                   a.btn.btn-warning(href=`/carrito/anadir_carrito/${inventario.idInventario}`) Añadir al carrito

@@ -19,6 +19,8 @@ module.exports = function () {
     // Rutas de carritos
     router.get('/', carritosController.verCarrito);
     router.get('/anadir_carrito/:id', carritosController.crearCarrito);
+    router.get('/quitar_uno/:id', carritosController.quitarUno)
+    router.get('/quitar_producto/:id', carritosController.quitarProducto)
 
     return router;
 }
