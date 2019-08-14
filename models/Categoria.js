@@ -19,8 +19,8 @@ const Categoria = db.define('categoriainventario', {
         type: Sequelize.STRING(30)
     },
 
-    idtipo: {
-        type: Sequelize.INTEGER
+    descripcion: {
+        type: Sequelize.STRING(50)
     },
    
     url : Sequelize.STRING

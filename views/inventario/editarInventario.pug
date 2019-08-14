@@ -1,0 +1,25 @@
+extends ../formularios
+
+block contenido2  
+  section
+    if (inventarios)
+      each inventario in inventarios
+        form.bg-light.p-5.contact-form(action=`/formularios/inventario/editarInventario/${inventario.idInventario}`, method='POST')
+          .form-group
+            img(src=inventario.foto alt='producto')
+            h4 Nombre producto
+            input.form-control(name="nombre", type='text', placeholder='Nombre del producto', value=`${inventario.nombre}`)
+            h4 Descripción
+            input.form-control(name='content' type='text',placeholder='Descripcion del producto', value=`${inventario.descripcion}`)
+            h4 Costo unitario
+            input.form-control(name="costo", type='text', placeholder='Costo unitario', value=`${inventario.costoUnitario}`)
+            h4 Precio de venta
+            input.form-control(name="precio", type='text', placeholder='Precio de venta', value=`${inventario.precioVenta}`)
+            h4 cantidad
+            input.form-control(name="stock", type='text', placeholder='stock', value=`${inventario.stock}`)
+            h4 Categoria
+            if (categorias)
+              select(id="inputState" name='categoria').form-control
+                each categoria in categorias
+                  option.categoriasText(href=`/categoria/${categoria.url}`) #{categoria.nombre}      
+            input.btn.btn-primary.py-3.px-5(id="submit" ,type='submit', value='Aceptar')

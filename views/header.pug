@@ -90,39 +90,33 @@ head
      
     .header-wrapicon2
       img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
-      span.header-icons-noti 0
+      if (!session.cart)
+        span.header-icons-noti 0
+      else
+        span.header-icons-noti #{session.cart.totalQty}
 
       
 
       // Header CARRITO
       .header-cart.header-dropdown
         ul.header-cart-wrapitem
-          li.header-cart-item
-            .header-cart-item-img
-              img(src='images/item-cart-01.jpg' alt='IMG')
-            .header-cart-item-txt
-              a.header-cart-item-name(href='#')
-                | White Shirt With Pleat Detail Back
-              span.header-cart-item-info
-                | 1 x $19.00
-          li.header-cart-item
-            .header-cart-item-img
-              img(src='images/item-cart-02.jpg' alt='IMG')
-            .header-cart-item-txt
-              a.header-cart-item-name(href='#')
-                | Converse All Star Hi Black Canvas
-              span.header-cart-item-info
-                | 1 x $39.00
-          li.header-cart-item
-            .header-cart-item-img
-              img(src='images/item-cart-03.jpg' alt='IMG')
-            .header-cart-item-txt
-              a.header-cart-item-name(href='#')
-                | Nixon Porter Leather Watch In Tan
-              span.header-cart-item-info
-                | 1 x $17.00
-        .header-cart-total
-          | Total: $75.00
+          if (!session.cart)
+            .header-cart-total
+            | Total: L.0
+          else
+            each producto in products
+              li.header-cart-item
+                .header-cart-item-img
+                  img(src='/img/vino.png' alt='IMG')
+                .header-cart-item-txt
+                  a.header-cart-item-name(href='#')
+                  | #{producto.item.nombre}
+                  span.header-cart-item-info
+                    | #{producto.qty} x #{producto.item.precioVenta}
+            .header-cart-total
+              | Total: L #{totalPrice}
+          
+        
         .header-cart-buttons
           .header-cart-wrapbtn
           
@@ -178,36 +172,28 @@ header.header2
         .header-wrapicon2.m-r-13
           img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
           // Parte del case
-          span.header-icons-noti 10
+          if (!session.cart)
+            span.header-icons-noti 0
+          else
+            span.header-icons-noti #{session.cart.totalQty}
           // Header cart noti
           .header-cart.header-dropdown
             ul.header-cart-wrapitem
-              li.header-cart-item
-                .header-cart-item-img
-                  img(src='images/item-cart-01.jpg' alt='IMG')
-                .header-cart-item-txt
-                  a.header-cart-item-name(href='#')
-                    | White Shirt With Pleat Detail Back
-                  span.header-cart-item-info
-                    | 1 x $19.00
-              li.header-cart-item
-                .header-cart-item-img
-                  img(src='images/item-cart-02.jpg' alt='IMG')
-                .header-cart-item-txt
-                  a.header-cart-item-name(href='#')
-                    | Converse All Star Hi Black Canvas
-                  span.header-cart-item-info
-                    | 1 x $39.00
-              li.header-cart-item
-                .header-cart-item-img
-                  img(src='images/item-cart-03.jpg' alt='IMG')
-                .header-cart-item-txt
-                  a.header-cart-item-name(href='#')
-                    | Nixon Porter Leather Watch In Tan
-                  span.header-cart-item-info
-                    | 1 x $17.00
-            .header-cart-total
-              | Total: $75.00
+              if (!session.cart)
+                .header-cart-total
+                | Total: L.0
+              else
+                each producto in products
+                  li.header-cart-item
+                    .header-cart-item-img
+                      img(src='/img/vino.png' alt='IMG')
+                    .header-cart-item-txt
+                      a.header-cart-item-name(href='#')
+                      | #{producto.item.nombre}
+                      span.header-cart-item-info
+                        | #{producto.qty} x #{producto.item.precioVenta}
+                .header-cart-total
+                  | Total: L #{totalPrice}
             .header-cart-buttons
               .header-cart-wrapbtn
                 // Button
@@ -261,36 +247,28 @@ header.header2
         span.linedivide2
         .header-wrapicon2
           img.header-icon1.js-show-header-dropdown(src='images/icons/icon-header-02.png' alt='ICON')
-          span.header-icons-noti 0
+          if (!session.cart)
+            span.header-icons-noti 0
+          else
+            span.header-icons-noti #{session.cart.totalQty}
           // Header cart noti
           .header-cart.header-dropdown
             ul.header-cart-wrapitem
-              li.header-cart-item
-                .header-cart-item-img
-                  img(src='images/item-cart-01.jpg' alt='IMG')
-                .header-cart-item-txt
-                  a.header-cart-item-name(href='#')
-                    | White Shirt With Pleat Detail Back
-                  span.header-cart-item-info
-                    | 1 x $19.00
-              li.header-cart-item
-                .header-cart-item-img
-                  img(src='images/item-cart-02.jpg' alt='IMG')
-                .header-cart-item-txt
-                  a.header-cart-item-name(href='#')
-                    | Converse All Star Hi Black Canvas
-                  span.header-cart-item-info
-                    | 1 x $39.00
-              li.header-cart-item
-                .header-cart-item-img
-                  img(src='images/item-cart-03.jpg' alt='IMG')
-                .header-cart-item-txt
-                  a.header-cart-item-name(href='#')
-                    | Nixon Porter Leather Watch In Tan
-                  span.header-cart-item-info
-                    | 1 x $17.00
-            .header-cart-total
-              | Total: $75.00
+              if (!session.cart)
+                .header-cart-total
+                | Total: L.0
+              else
+                each producto in products
+                  li.header-cart-item
+                    .header-cart-item-img
+                      img(src='/img/vino.png' alt='IMG')
+                    .header-cart-item-txt
+                      a.header-cart-item-name(href='#')
+                      | #{producto.item.nombre}
+                      span.header-cart-item-info
+                        | #{producto.qty} x #{producto.item.precioVenta}
+                .header-cart-total
+                  | Total: L #{totalPrice}
             .header-cart-buttons
               .header-cart-wrapbtn
                 // Button
