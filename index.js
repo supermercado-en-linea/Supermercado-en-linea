@@ -20,7 +20,6 @@ const facturaRoute = require("./routes/factura")
 
 
 // Crear la conexión con la Base de Datos
-
 const db = require('./config/db');
 
 // Importar modelos
@@ -52,12 +51,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Habilitar sesiones
 app.use(session({
-    secret : 'unpijesecreto',
+    secret : 'ElSecreto',
     resave : false,
     saveUninitialized : false,
     store: new SequelizeStore({db: db}),
     cookie : { maxAge: 180 * 60 * 1000}
 }))
+
+// Asignar los datos del usuario globalmente
+app.get('*', function(req, res, next) {
+    res.locals.user = req.user || null;
+    next();
+});
 
 //Crear una instancia de passport
 app.use(passport.initialize());

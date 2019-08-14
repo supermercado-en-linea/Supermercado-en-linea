@@ -2,10 +2,10 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const db = require('../config/db');
-const Cliente = require('../models/Cliente');
+const Cliente = require('./Cliente');
 
 // Definicion del model Usuario
-const Usuario = db.define('Usuario', {
+const Usuario = db.define('usuario', {
     id : {
         type : Sequelize.INTEGER,
         primaryKey : true,
@@ -36,10 +36,12 @@ const Usuario = db.define('Usuario', {
         //     }
         // }
     },
-    provider_id : {
-        type : Sequelize.STRING(100),
-        unique : true
-    }
+    // provider_id : {
+    //     type : Sequelize.STRING(100),
+    //     unique : true
+    // }
+    token : Sequelize.STRING,
+    expiration : Sequelize.DATE
 },
 {
     hooks : {
@@ -50,7 +52,7 @@ const Usuario = db.define('Usuario', {
     }
 });
 
-// Usuario.hasOne(Cliente);
+Usuario.belongsTo(Cliente);
 
 Usuario.prototype.verificarPassword = function (password) {
     return bcrypt.compareSync(password, this.password);

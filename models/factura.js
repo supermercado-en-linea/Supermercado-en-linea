@@ -7,7 +7,7 @@ const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
 
-const Cliente = require('./Cliente')
+const Cliente = require('./Cliente');
 
 const Factura = db.define('factura', {
     id : {

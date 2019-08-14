@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // Importar passport
-const passport = require('passport');
+// const passport = require('passport');
 
 // Importar los controllers
 const authController = require('../controllers/authController');
@@ -29,8 +29,19 @@ module.exports = function () {
     // router.route('/auth/google')
     //     .post(passport.authenticate('google', { session : false }), authController.autenticarUsuarioGoogle);
 
-    router.route('/auth/facebook')
-        .post(passport.authenticate('facebook', { session : false }), authController.autenticarUsuarioFacebook);
+    // router.route('/auth/facebook')
+    //     .post(passport.authenticate('facebook', { session : false }), usuariosController.facebookOAuth);
+
+    // router.route('/oauth/unlink/facebook')
+    //     .post(passportJWT, usuariosController.unlinkFacebook);
+
+    // router.route('/oauth/link/facebook')
+    //     .post(passportJWT, passport.authorize('facebook', {
+    //         session: false
+    //     }), usuariosController.linkFacebook)
+
+    // router.route('/secret')
+    //     .get(passportJWT, usuariosController.);
 
     // Cerrar sesión
     router.get('/cerrar_sesion', authController.cerrarSesion);
@@ -40,5 +51,11 @@ module.exports = function () {
     //     res.redirect('/');
 // });
 
+    // Recuperar contraseña
+    router.get('/reestablecer', usuariosController.formularioReestablecerPassword);
+    router.post('/reestablecer', authController.enviarToken);
+    router.get('/reestablecer/:token', authController.validarToken);
+    router.post('/reestablecer/:token', authController.updatePassword);
+    
     return router;
 }
