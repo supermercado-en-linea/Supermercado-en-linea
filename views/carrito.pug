@@ -2,7 +2,7 @@ include ./header
 
 
 // Title Page
-section.bg-title-page.p-t-40.p-b-50.flex-col-c-m(style='background-image: url(images/heading-pages-01.jpg);')
+section.bg-title-page.p-t-40.p-b-50.flex-col-c-m(style='background-image: url(images/heading-pages-01.png);')
   h2.l-text2.t-center
     | Carrito
 // Cart
@@ -25,7 +25,7 @@ section.cart.bgwhite.p-t-70.p-b-100
               td.column-1
                 a(href=`/carrito/quitar_producto/${producto.item.idInventario}`)
                   .cart-img-product.b-rad-4.o-f-hidden
-                    img( src='/img/vino.png' alt='IMG-PRODUCT')
+                    img( src=producto.item.foto alt='IMG-PRODUCT')
               td.column-2 #{producto.item.nombre}
               td.column-3 L #{producto.item.precioVenta}
               td.column-4
@@ -94,6 +94,6 @@ section.cart.bgwhite.p-t-70.p-b-100
         .size15.trans-0-4
           // Button
           button.flex-c-m.sizefull.bg1.bo-rad-23.hov1.s-text1.trans-0-4
-            | Proceed to Checkout
+            | Proceder a la compra
 // Footer
 include ./footer

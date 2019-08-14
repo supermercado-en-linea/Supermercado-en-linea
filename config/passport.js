@@ -12,7 +12,7 @@ const Usuario = require('../models/Usuario');
 const Cliente = require('../models/Cliente');
 
 // Importar archivo config.js para los clientId y Secret id
-const config = require('./config');
+
 
 // Estrategia JSON Web Tokens
 // passport.use(
@@ -87,7 +87,7 @@ passport.use(
 // )
 
 //Estrategia de autenticacion con Facebook
-passport.use('facebook',
+/* passport.use('facebook',
     new FacebookStrategy(
         {
             clientID : config.facebook.clientId,
@@ -143,7 +143,7 @@ passport.use('facebook',
             }
         }
     )
-);
+); */
 
 
 //Serializar el usuario

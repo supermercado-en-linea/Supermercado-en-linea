@@ -111,7 +111,7 @@ head
             each producto in products
               li.header-cart-item
                 .header-cart-item-img
-                  img(src='/img/vino.png' alt='IMG')
+                  img(src=producto.item.foto alt='IMG')
                 .header-cart-item-txt
                   a.header-cart-item-name(href='#')
                   | #{producto.item.nombre}
@@ -165,8 +165,11 @@ header.header2
             option OTRA
         span.linedivide1
         // 
-        if usuario
+        if usuario.email
           p Bienvenido #{usuario.email}
+          span.linedivide1
+          a(href="/user/cerrar_sesion")  Cerrar sesión
+          
         else
           p Bienvenido Invitado
 
@@ -190,7 +193,7 @@ header.header2
                 each producto in products
                   li.header-cart-item
                     .header-cart-item-img
-                      img(src='/img/vino.png' alt='IMG')
+                      img(src=producto.item.foto alt='IMG')
                     .header-cart-item-txt
                       a.header-cart-item-name(href='#')
                       | #{producto.item.nombre}
@@ -265,7 +268,7 @@ header.header2
                 each producto in products
                   li.header-cart-item
                     .header-cart-item-img
-                      img(src='/img/vino.png' alt='IMG')
+                      img(src=producto.item.foto alt='IMG')
                     .header-cart-item-txt
                       a.header-cart-item-name(href='#')
                       | #{producto.item.nombre}
