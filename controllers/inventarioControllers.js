@@ -36,28 +36,8 @@ exports.inventarioHome2 = async(req, res) =>{
 
 }
 exports.ver =async(req,res)=>{
-    const categoriasPromise =  Categoria.findOne({
-        where : {
-            url : req.params.url
-        }
-    });
-    const [categoriass] = await Promise.all([categoriasPromise]).then();
-
-    const id = categoriass.idCategoria;
-    console.log(id)
-
-
-    const categoriasPr = Categoria.findAll();
-    const [categorias] = await Promise.all([categoriasPr]).then();
-
-
-    const inventariosPromise = Inventario.findAll({
-        where : {
-            categoriainventarioIdCategoria : id
-        }
-    });
-    const [inventarios] = await Promise.all([inventariosPromise]).then();
-    res.render('productos',{inventarios,nombrePagina : 'Productos',categorias});
+    
+    res.redirect('/productos/'+req.params.url);
 
 }
 

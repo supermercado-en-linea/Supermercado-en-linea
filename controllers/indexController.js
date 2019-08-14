@@ -44,3 +44,22 @@ exports.carrito =  async(req, res) => {
         nombrePagina : 'Tu carrito'
     });
 };
+
+exports.ver =  async(req, res) => {
+    const inventariosPromise = Inventario.findAll({
+        where:{
+            categoriainventarioIdCategoria: req.params.url
+        }
+    });
+
+    const [inventarios] = await Promise.all([inventariosPromise]).then();
+    const categoriasPromise = Categoria.findAll();
+
+    const [categorias] = await Promise.all([categoriasPromise]).then();
+   
+    res.render('productos',{
+      inventarios,
+      nombrePagina : 'Productos',
+      categorias
+    });
+};
