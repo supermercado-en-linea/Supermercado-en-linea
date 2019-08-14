@@ -5,9 +5,6 @@ const router = express.Router();
 
 // Importar el Controller
 
-// TODO: Falta implementar el controlador
-
-
 const carritosController = require('../controllers/carritoController');
 //const userController = require('../controllers/userController')
 
@@ -20,10 +17,7 @@ const carritosController = require('../controllers/carritoController');
 
 module.exports = function () {
     // Rutas de carritos
-    router.post('/crearCarrito', carritosController.crearCarrito);
-    router.get('/ver_carritos', carritosController.ariculosHome2);
-   // router.post('/crear_carrito', carritosController.nuevoArticulo);
-    router.get('/carrito/:url', carritosController.carritoPorUrl);
+    router.get('/anadir_carrito/:id', carritosController.crearCarrito);
 
     return router;
 }

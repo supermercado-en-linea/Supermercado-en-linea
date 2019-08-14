@@ -7,6 +7,8 @@ const slug = require('slug');
 // Importar shortid
 const shortid = require('shortid');
 
+const Cliente = require('./Cliente')
+
 const Carrito = db.define('carrito', {
     id : {
         type: Sequelize.INTEGER,
@@ -44,7 +46,7 @@ const Carrito = db.define('carrito', {
     }
 });
 
-Carrito.belogsTo(Cliente);
+Carrito.belongsTo(Cliente);
 
 // Importar el modelo para poder utilizarlo
 module.exports = Carrito;
