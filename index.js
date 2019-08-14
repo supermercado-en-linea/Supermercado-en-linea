@@ -16,7 +16,7 @@ const session = require("express-session")
 const flash = require("connect-flash");
 const facturaRoute = require("./routes/factura")
 // Crear la conexión con la Base de Datos
-//const db = require('./config/db');
+const db = require('./config/db');
 
 // Importar modelos
 require('./models/Usuario');
@@ -24,9 +24,9 @@ require('./models/Cliente');
 // Realizar la conexión
 // Sequelize se conecta mediante promises
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise
-//db.sync()
-    //.then(() => console.log('Conectado al servidor de BD'))
-    //.catch(error => console.log(error));
+db.sync()
+    .then(() => console.log('Conectado al servidor de BD'))
+    .catch(error => console.log(error));
 
 // Crear una App de express
 const app = express();
@@ -45,10 +45,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Habilitar sesiones
 app.use(session({
-    secret : 'unpijesecreto',
+    secret : 'ElSecreto',
     resave : false,
     saveUninitialized : false
 }))
+
+// Asignar los datos del usuario globalmente
+app.get('*', function(req, res, next) {
+    res.locals.user = req.user || null;
+    next();
+});
 
 //Crear una instancia de passport
 app.use(passport.initialize());

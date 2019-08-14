@@ -4,6 +4,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-plus-token').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+// const JwtStrategy = require('passport-jwt').Strategy;
+// const { ExtraerJwt } = require('passport-jwt');
 
 //Referenciar el modelo al que se autentica
 const Usuario = require('../models/Usuario');
@@ -11,6 +13,28 @@ const Cliente = require('../models/Cliente');
 
 // Importar archivo config.js para los clientId y Secret id
 const config = require('../config');
+
+// Estrategia JSON Web Tokens
+// passport.use(
+//     new JwtStrategy ({
+//         jwtFromRequest : ExtraerJwt.fromHeader('authorization'),
+//         secretOrKey : config.JWT_SECRET
+//     }, async (payload, done) => {
+//         try {
+//             // Buscar Usuario especificado en el token
+//             const user = await Usuario.findById(payload.sub);
+
+//             if(!user) {
+//                 return done(null, false);
+//             }
+
+//             done (null, user);
+//         } catch (error) {
+//             done(error, false);
+//         }
+//     })
+// )
+
 
 //Definir estrategia de autenticacion local
 passport.use(
