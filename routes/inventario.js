@@ -30,7 +30,7 @@ module.exports = function () {
     router.get('/editarInventario/:id',inventariosController.editarInventario);
     router.post('/editarInventario/:id',inventariosController.ModificarInventario);
     router.get('/eliminarInventario/:id',inventariosController.eliminarInventario);
-    
+    router.get('/filtro/:url',inventariosController.ver);
     //router.get('/inventario/:url', inventariosController.inventarioPorUrl);
 
     return router;

@@ -12,6 +12,9 @@ const indexController = require('../controllers/indexController')
 module.exports = function () {
 
     router.get('/', indexController.paginaPrincipal);
+    
+    router.get('/productos/:url', indexController.ver);
+
 
     router.get('/productos', indexController.productos);
 
