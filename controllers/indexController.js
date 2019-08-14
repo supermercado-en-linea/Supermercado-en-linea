@@ -1,6 +1,8 @@
 // Importar el modelo
 //const Proyecto = require('../models/Proyecto');
 const Inventario = require('../models/Inventario');
+const Categoria = require('../models/Categoria');
+
 
 
 exports.paginaPrincipal =  async(req, res) => {
@@ -13,10 +15,14 @@ exports.productos =  async(req, res) => {
     const inventariosPromise = Inventario.findAll();
 
     const [inventarios] = await Promise.all([inventariosPromise]).then();
+    const categoriasPromise = Categoria.findAll();
+
+    const [categorias] = await Promise.all([categoriasPromise]).then();
    
     res.render('productos',{
       inventarios,
-      nombrePagina : 'Productos'
+      nombrePagina : 'Productos',
+      categorias
     });
 };
 
