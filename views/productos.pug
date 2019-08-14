@@ -71,21 +71,23 @@ section.bgwhite.p-t-55.p-b-65
                             if (inventario.idInventario==1)
                               .carousel-item.active.slide
                                 img.d-block(src='/img/vino.png' alt='#{inventario.nombre} ')
-                                .carousel-caption.d-none.d-md-block.texts
+                                .carousel-caption.d-none.d-md-block.texts(id=`${inventario.idInventario}`)
                                   h5.text-white #{inventario.nombre}
                                     p.text-white 
                                       b | L Precio:#{inventario.precioVenta} 
                                       b | Quedan: #{inventario.stock}
-                                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+
+                                      a.btn.btn-warning(href=`/carrito/anadir_carrito/${inventario.idInventario}`) Añadir al carrito
+
                             else
                               .carousel-item.slide
                                 img.d-block(src= inventario.foto )
-                                .carousel-caption.d-none.d-md-block.texts
+                                .carousel-caption.d-none.d-md-block.texts(id=`${inventario.idInventario}`)
                                   h5.text-white #{inventario.nombre}
                                   p.text-white 
                                     b | L Precio:#{inventario.precioVenta} 
                                     b | Quedan: #{inventario.stock}
-                                  a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
+                                  a.btn.btn-warning(href=`/carrito/anadir_carrito/${inventario.idInventario}`) Añadir al carrito
                     a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
                         span.carousel-control-prev-icon(aria-hidden='true')
                         span.sr-only Anterior
@@ -96,19 +98,12 @@ section.bgwhite.p-t-55.p-b-65
           if (inventarios)
             each inventario in inventarios
               .producto
-                if (inventario.idInventario==1)
-                  img(src=('/img/vino.png') alt='producto')
-                  .contenido-producto
-                    p.titulo #{inventario.nombre}
-                    p.precio #{inventario.precioVenta}
-                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
-                else
-                  img(src=inventario.foto alt='producto')
-                  .contenido-producto
-                    p.titulo #{inventario.nombre}
-                    p.precio #{inventario.precioVenta}
-                    a.btn.btn-warning(href='#' onclick="AgregarCarrito(1,#{inventario.nombre},#{inventario.precio},1,#{inventario.precio})") Añadir al carrito
-               
+                img(src=inventario.foto alt='producto')
+                .contenido-producto(id=`${inventario.idInventario}`)
+                  p.titulo #{inventario.nombre}
+                  p.precio #{inventario.precioVenta}
+                  a.btn.btn-warning(href=`/carrito/anadir_carrito/${inventario.idInventario}`) Añadir al carrito
+
 
 
         // Pagination
